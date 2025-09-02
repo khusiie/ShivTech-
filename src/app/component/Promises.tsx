@@ -4,7 +4,7 @@ import Image from "next/image";
 import ChartAreaInteractive from "../component/ChartAreaInteractive";
 import Card1 from "../../../public/assets/promises/card1.svg";
 import Card2 from "../../../public/assets/promises/card2.svg";
-import Card3 from "../../../public/assets/promises/Card3.svg";
+import Card3 from "../../../public/assets/promises/card3.svg";
 export default function DeliveryPromise() {
   const cards = [
     {
