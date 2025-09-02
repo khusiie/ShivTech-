@@ -1,25 +1,28 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ChartAreaInteractive from "../component/ChartAreaInteractive";
-
+import Card1 from "../../../public/assets/promises/card1.svg";
+import Card2 from "../../../public/assets/promises/card2.svg";
+import Card3 from "../../../public/assets/promises/Card3.svg";
 export default function DeliveryPromise() {
   const cards = [
     {
       title: "60 Days MVPs",
       subtitle: "Discover → Design → Build → Release.",
-      icon: "🚀", // Replace with your actual icon/image
+      image: Card1,
       gradient: "from-blue-500/20 to-cyan-500/10",
     },
     {
       title: "Fixed Price",
       subtitle: "Scoped Upfront; No Surprises.",
-      icon: "💰", // Replace with your actual icon/image
+      image: Card2,
       gradient: "from-green-500/20 to-emerald-500/10",
     },
     {
       title: "You Received",
       subtitle: "You Receive — Source Code, CI/CD, Analytics, Essential Docs, 30-Day Hypercare.",
-      icon: "📦", // Replace with your actual icon/image
+      image: Card3,
       gradient: "from-purple-500/20 to-pink-500/10",
     },
   ];
@@ -58,23 +61,20 @@ export default function DeliveryPromise() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 p-[1px]">
               <div className="h-full w-full rounded-2xl bg-gradient-to-b from-gray-900/80 to-black/90 backdrop-blur-sm" />
             </div>
-            
+
             {/* Card Content */}
             <div className="relative rounded-2xl p-8 h-full backdrop-blur-sm border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/20">
               {/* Icon/Image Container */}
-              <div className="mb-6">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-600/20 flex items-center justify-center text-2xl border border-sky-500/30">
-                  {card.icon}
-                  {/* Replace the emoji with your actual image:
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-10 h-10 object-contain"
-                  />
-                  */}
-                </div>
+              <div className="mb-6  mt-2 flex justify-center align-item-center  ">
+
+
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  width={350}
+                  height={150}
+                />
               </div>
-              
               {/* Text Content */}
               <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-sky-300 transition-colors">
                 {card.title}
@@ -82,7 +82,7 @@ export default function DeliveryPromise() {
               <p className="text-gray-400 leading-relaxed">
                 {card.subtitle}
               </p>
-              
+
               {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-sky-500/5 to-transparent pointer-events-none" />
             </div>
@@ -103,7 +103,7 @@ export default function DeliveryPromise() {
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 p-[1px]">
             <div className="h-full w-full rounded-2xl bg-gradient-to-b from-gray-900/80 to-black/90" />
           </div>
-          
+
           {/* Content */}
           <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300">
             <div className="flex flex-col lg:flex-row items-center gap-8">
@@ -111,7 +111,7 @@ export default function DeliveryPromise() {
               <div className=" w-full lg:w-[60%] min-h-[100px] flex items-center justify-center">
                 <ChartAreaInteractive />
               </div>
-              
+
               {/* Text Section */}
               <div className=" w-full lg:w-[40%] text-center lg:text-left">
                 <h3 className="text-4xl lg:text-5xl font-bold mb-4">
@@ -120,8 +120,8 @@ export default function DeliveryPromise() {
                 <p className="text-gray-400 text-lg leading-relaxed">
                   Optional Monthly Growth Sprints.
                 </p>
-                
-              
+
+
               </div>
             </div>
           </div>
