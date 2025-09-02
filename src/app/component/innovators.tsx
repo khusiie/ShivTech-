@@ -1,14 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
-const logos = [
-  "/brands/adidas.svg",
-  "/brands/meta.svg",
-  "/brands/hm.svg",
-  "/brands/slack.svg",
-  "/brands/telegram.svg",
-];
+import Logobg from "../../../public/assets/innovators/logobg.svg";
 
 const testimonials = [
   {
@@ -40,32 +33,32 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20 text-center">
-      {/* Top Logos Arc */}
-      <div className="relative w-full flex justify-center mb-12">
-        <div className="flex gap-12 flex-wrap justify-center">
-          {logos.map((logo, idx) => (
-            <div
-              key={idx}
-              className="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full border border-gray-600 shadow-md hover:scale-110 transition"
-            >
-              <Image src={logo} alt="brand" width={32} height={32} />
-            </div>
-          ))}
-        </div>
-      </div>
+     {/* Top Logos Arc */}
+<div className="relative w-full flex justify-center mb-12">
+  <div className="relative flex gap-12 flex-wrap justify-center">
+    {/* Background Logo */}
+    <Image 
+      src={Logobg} 
+      alt="brand" 
+      className="w-full h-full object-contain" 
+    />
 
-      {/* Badge */}
-      <span className="text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 mb-4 inline-block">
-        Testimonials
-      </span>
+    {/* Overlapping Text */}
+    <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 bg-black/50 backdrop-blur-sm">
+      Testimonials
+    </span>
+  </div>
+</div>
+
+
 
       {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
+      <h2 className="text-3xl md:text-6xl font-bold mb-12">
         Trusted by innovators
       </h2>
 
       {/* Testimonials Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols- sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {testimonials.map((t, idx) => (
           <div
             key={idx}
