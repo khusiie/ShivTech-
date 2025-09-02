@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const techStack = [
   { 
@@ -63,44 +63,80 @@ const techStack = [
 ];
 
 export default function Technologies() {
-const [active, setActive] = useState<number>(2);       // active will always be a number
-const [hovered, setHovered] = useState<number | null>(null); // hovered can be number or null
+  const [active, setActive] = useState<number>(2);       
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  // Calculate sizes and positions optimized for performance
-  const getCardStyle = (idx :number) => {
+  // Autoplay functionality
+  useEffect(() => {
+    if (!isAutoPlaying || hovered !== null) return;
+
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % techStack.length);
+    }, 2000); // Change every 2 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, hovered]);
+
+  // Pause autoplay when user interacts
+  const handleUserInteraction = (idx: number) => {
+    setIsAutoPlaying(false);
+    setActive(idx);
+    
+    // Resume autoplay after 5 seconds of no interaction
+    setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 5000);
+  };
+
+  const handleMouseEnter = (idx: number) => {
+    setHovered(idx);
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(null);
+    // Resume autoplay after a short delay
+    setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 1000);
+  }; 
+
+  // Calculate sizes and positions optimized for mobile
+  const getCardStyle = (idx: number) => {
     const displayActive = hovered !== null ? hovered : active;
     const isActive = idx === displayActive;
     const distance = Math.abs(idx - displayActive);
     
-    // Progressive sizing based on distance from active card
+    // Mobile-first responsive sizing
     if (isActive) {
       return {
-        size: "w-20 h-20",
-        padding: "p-6",
+        size: "w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20",
+        padding: "p-3 sm:p-4 md:p-6",
         zIndex: "z-50",
         scale: "scale-110",
         opacity: "opacity-100"
       };
     } else if (distance === 1) {
       return {
-        size: "w-16 h-16",
-        padding: "p-4", 
+        size: "w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16",
+        padding: "p-2 sm:p-3 md:p-4", 
         zIndex: "z-30",
         scale: "scale-100",
         opacity: "opacity-90"
       };
     } else if (distance === 2) {
       return {
-        size: "w-12 h-12",
-        padding: "p-3",
+        size: "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12",
+        padding: "p-2 sm:p-2 md:p-3",
         zIndex: "z-20", 
         scale: "scale-90",
         opacity: "opacity-75"
       };
     } else {
       return {
-        size: "w-10 h-10",
-        padding: "p-2",
+        size: "w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10",
+        padding: "p-1 sm:p-2 md:p-2",
         zIndex: "z-10",
         scale: "scale-80", 
         opacity: "opacity-60"
@@ -109,21 +145,28 @@ const [hovered, setHovered] = useState<number | null>(null); // hovered can be n
   };
 
   return (
-    <section className="w-full bg-black text-white py-16 flex flex-col items-center px-4 overflow-hidden">
+    <section className="w-full bg-black text-white py-8 sm:py-12 md:py-16 flex flex-col items-center px-4 overflow-hidden">
       {/* Small Badge */}
-      <span className="text-xs md:text-sm px-3 py-1 rounded-full border border-gray-600 text-gray-400 mb-4">
+      <span className="text-xs md:text-sm px-3 py-1 rounded-full text-gray-400 mb-3 sm:mb-4">
         Our Stack
       </span>
 
       {/* Heading */}
-      <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold mb-16 text-center">
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold mb-8 sm:mb-12 md:mb-16 text-center px-2">
         Technologies We Used
       </h2>
 
-      {/* Tech Icons Container */}
-      <div className="relative w-full max-w-5xl h-32 mb-12">
+      {/* Tech Icons Container - Mobile responsive */}
+      <div className="relative w-full max-w-5xl h-20 sm:h-24 md:h-32 mb-8 sm:mb-10 md:mb-12">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex items-center justify-center space-x-8">
+          {/* Mobile: Show only 5 cards at once with horizontal scroll effect */}
+          <div className="flex items-center justify-center space-x-2 sm:space-x-4 md:space-x-8 overflow-x-auto w-full"
+               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <style jsx>{`
+              div::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
             {techStack.map((tech, idx) => {
               const { size, padding, scale, opacity, zIndex } = getCardStyle(idx);
               const displayActive = hovered !== null ? hovered : active;
@@ -132,27 +175,27 @@ const [hovered, setHovered] = useState<number | null>(null); // hovered can be n
               return (
                 <button
                   key={idx}
-                  onClick={() => setActive(idx)}
-                  onMouseEnter={() => setHovered(idx)}
-                  onMouseLeave={() => setHovered(null)}
-                  className={`relative transition-all duration-500 ease-out transform ${isActive
+                  onClick={() => handleUserInteraction(idx)}
+                  onMouseEnter={() => handleMouseEnter(idx)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`relative transition-all duration-500 ease-out transform flex-shrink-0 ${isActive
                       ? "text-white"
                       : "bg-gray-800/50 hover:bg-gray-700/60 text-gray-300 hover:text-white border border-gray-700/50"
                   } ${padding} ${scale} ${opacity} ${zIndex}`}
                   style={{
-                    borderRadius: isActive ? '32.801px' : '16px',
+                    borderRadius: isActive ? '12px' : '12px',
                     background: isActive 
                       ? 'linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)'
                       : undefined,
                     transform: isActive 
-                      ? 'scale(1.2) translateY(-8px)' 
+                      ? 'scale(1.1) translateY(-4px) sm:scale(1.2) sm:translateY(-8px)' 
                       : hovered === idx 
-                        ? 'scale(1.1) translateY(-4px)' 
+                        ? 'scale(1.05) translateY(-2px) sm:scale(1.1) sm:translateY(-4px)' 
                         : 'scale(1)',
                     boxShadow: isActive 
-                      ? '0 0 78.85px 0 rgba(153, 221, 255, 0.50)' 
+                      ? '0 0 40px 0 rgba(153, 221, 255, 0.50) sm:0 0 78.85px 0 rgba(153, 221, 255, 0.50)' 
                       : hovered === idx 
-                        ? '0 10px 25px -5px rgba(0, 0, 0, 0.3)' 
+                        ? '0 8px 20px -5px rgba(0, 0, 0, 0.3) sm:0 10px 25px -5px rgba(0, 0, 0, 0.3)' 
                         : 'none',
                   }}
                 >
@@ -167,25 +210,33 @@ const [hovered, setHovered] = useState<number | null>(null); // hovered can be n
       </div>
 
       {/* Active Technology Name with smooth transition */}
-      <div className="text-center min-h-[80px] flex flex-col items-center justify-center">
-        <p className="text-2xl sm:text-3xl font-bold transition-all duration-300 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+      <div className="text-center min-h-[60px] sm:min-h-[70px] md:min-h-[80px] flex flex-col items-center justify-center px-4">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold transition-all duration-300 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
           {techStack[hovered !== null ? hovered : active].name}
         </p>
       </div>
 
-      {/* Navigation dots */}
-      <div className="flex space-x-2 mt-6">
-        {techStack.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActive(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              (hovered !== null ? hovered : active) === idx
-                ? "bg-cyan-400 w-6 shadow-lg shadow-cyan-400/50"
-                : "bg-gray-600 hover:bg-gray-400"
-            }`}
-          />
-        ))}
+      {/* Navigation dots - Mobile optimized */}
+      <div className="flex space-x-2 mt-4 sm:mt-6 overflow-x-auto px-4"
+           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
+        <div className="flex space-x-2">
+          {techStack.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => handleUserInteraction(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 flex-shrink-0 ${
+                (hovered !== null ? hovered : active) === idx
+                  ? "bg-cyan-400 w-4 sm:w-6 shadow-lg shadow-cyan-400/50"
+                  : "bg-gray-600 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
