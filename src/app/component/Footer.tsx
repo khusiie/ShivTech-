@@ -21,31 +21,33 @@ const Footer: React.FC = () => {
             
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-8">
-          <div>
-            <h4 className="font-bold mb-2">Quick Links</h4>
-            <ul className="space-y-1 text-[12px] lg:text-sm">
-              <li>Works</li>
-              <li>Why us</li>
-              <li>Process</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-2">Contact</h4>
-            <ul className="space-y-1 text-[12px] lg:text-sm">
-              <li>hello@shivaitech.com</li>
-              <li>(1234) 567-890</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-2">Legal</h4>
-            <ul className="space-y-1 text-[12px] md:text-sm">
-              <li>Terms of Service</li>
-              <li>Privacy Policy</li>
-              <li>Careers</li>
-            </ul>
-          </div>
-        </div>
+ <div className="grid grid-cols-2 gap-6 sm:gap-8">           
+  <div>             
+    <h4 className="font-bold mb-2 text-sm sm:text-base">Quick Links</h4>             
+    <ul className="space-y-1 text-xs sm:text-sm lg:text-base">               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Works</li>               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Why us</li>               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Process</li>             
+    </ul>           
+  </div>           
+  
+  <div>             
+    <h4 className="font-bold mb-2 text-sm sm:text-base">Contact</h4>             
+    <ul className="space-y-1 text-xs sm:text-sm lg:text-base">               
+      <li className="hover:text-gray-300 transition-colors break-all">hello@shivaitech.com</li>               
+      <li className="hover:text-gray-300 transition-colors">(1234) 567-890</li>             
+    </ul>           
+  </div>           
+  
+  <div className="col-span-2">             
+    <h4 className="font-bold mb-2 text-sm sm:text-base">Legal</h4>             
+    <ul className="space-y-1 text-xs sm:text-sm lg:text-base">               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Terms of Service</li>               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Privacy Policy</li>               
+      <li className="hover:text-gray-300 transition-colors cursor-pointer">Careers</li>             
+    </ul>           
+  </div>         
+</div>
       </div>
    
       {/* Footer Bar */}
