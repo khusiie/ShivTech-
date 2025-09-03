@@ -7,7 +7,7 @@ export default function BuildProcess() {
   return (
     <section className="w-full bg-black text-white py-16 px-6 flex flex-col items-center">
       {/* Top Heading */}
-      <div className="flex flex-col items-center mb-12 text-center">
+      <div className="flex flex-col items-center  mb:6 lg:mb-12  text-center">
         <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Tooling & Outputs
         </span>

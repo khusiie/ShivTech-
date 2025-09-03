@@ -9,26 +9,30 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  ReferenceDot,
 } from "recharts";
 
 // Sample data (replace with your API data later)
 const data = [
-  { name: "Jan", value: 20 },
-  { name: "Feb", value: 35 },
-  { name: "Mar", value: 25 },
-  { name: "Apr", value: 60 },
-  { name: "May", value: 100 },
-  { name: "Jun", value: 70 },
-  { name: "Jul", value: 60 },
+  { value: 20 },
+  { value: 35 },
+  { value: 25 },
+  { value: 60 },
+  { value: 100 }, // 100% Growth Point
+  { value: 70 },
+  { value: 70 },
 ];
 
 export default function ChartAreaInteractive() {
+  // find the index of the 100% point
+  const targetIndex = data.findIndex((d) => d.value === 100);
+
   return (
     <div className="w-full h-60 rounded-2xl bg-gradient-to-b from-[#0b0b0b] to-[#101010] p-4 shadow-lg">
       <ResponsiveContainer>
         <AreaChart
           data={data}
-          margin={{ top: 20, right: 20, left: 0, bottom: 0 }}
+          margin={{ top: 30, right: 20, left: 0, bottom: 0 }}
         >
           {/* Gradient Fill */}
           <defs>
@@ -59,14 +63,33 @@ export default function ChartAreaInteractive() {
 
           {/* Area Line */}
           <Area
-            type="natural" // Smooth wavy curve
+            type="natural"
             dataKey="value"
             stroke="#38bdf8"
             strokeWidth={2}
             fill="url(#colorValue)"
-            dot={{ r: 4, fill: "#38bdf8" }}
-            activeDot={{ r: 6, fill: "#fff", stroke: "#38bdf8" }}
+            dot={false} // remove all dots
+            activeDot={false} // disable hover dots
           />
+
+          {/* Only show the 100% Circle */}
+          {targetIndex !== -1 && (
+            <ReferenceDot
+              x={targetIndex}
+              y={100}
+              r={8}
+              fill="#38bdf8"
+              stroke="#fff"
+              strokeWidth={2}
+              label={{
+                value: "Growth : 100%",
+                position: "top",
+                fill: "#38bdf8",
+                fontSize: 16,
+                fontWeight: "medium",
+              }}
+            />
+          )}
         </AreaChart>
       </ResponsiveContainer>
     </div>

@@ -28,7 +28,7 @@ export default function DeliveryPromise() {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12">
+    <section className="bg-black text-white py-16 px-6 md:px-12 font-sora">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -37,13 +37,17 @@ export default function DeliveryPromise() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <p className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+      <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Promises
-        </p>
-        <h2 className="text-4xl md:text-[64px] font-bold">
-          Delivery <span className="text-sky-400">Promise</span>
-        </h2>
-        <p className="mt-3 text-gray-400 text-lg">60 Days, Fixed Price</p>
+        </span>
+<h2 className="text-7xl pt-4 md:text-[64px] font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+  Delivery Promise
+</h2>
+
+<p className="mt-3 text-4xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+  60 Days, Fixed Price
+</p>
+
       </motion.div>
 
       {/* 3 Top Cards */}
@@ -63,19 +67,19 @@ export default function DeliveryPromise() {
             </div>
 
             {/* Card Content */}
-            <div className="relative rounded-2xl p-8 h-full backdrop-blur-sm border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/20">
+            <div className="relative rounded-2xl h-full backdrop-blur-sm border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/20">
               {/* Icon/Image Container */}
-              <div className="mb-6  mt-2 flex justify-center align-item-center  ">
+              <div className="mb-6 mt-4  rounded-2xl    flex justify-center align-item-center">
 
 
                 <Image
                   src={card.image}
                   alt={card.title}
-                  width={350}
-                  height={150}
+                 w-full h-65 object-cover 
                 />
               </div>
-              {/* Text Content */}
+              <div className="px-8 py-4">
+                    {/* Text Content */}
               <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-sky-300 transition-colors">
                 {card.title}
               </h3>
@@ -83,6 +87,8 @@ export default function DeliveryPromise() {
                 {card.subtitle}
               </p>
 
+              </div>
+          
               {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-sky-500/5 to-transparent pointer-events-none" />
             </div>
@@ -98,14 +104,14 @@ export default function DeliveryPromise() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="max-w-6xl mx-auto"
       >
-        <div className="relative group">
+        <div className="relative group ">
           {/* Border gradient effect */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500/20 via-blue-500/20 to-cyan-500/20 p-[1px]">
             <div className="h-full w-full rounded-2xl bg-gradient-to-b from-gray-900/80 to-black/90" />
           </div>
 
           {/* Content */}
-          <div className="relative rounded-2xl p-8 border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300">
+          <div className="relative rounded-2xl  border border-gray-800/50 hover:border-sky-500/50 transition-all duration-300">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               {/* Chart Section */}
               <div className=" w-full lg:w-[60%] min-h-[100px] flex items-center justify-center">
@@ -115,9 +121,9 @@ export default function DeliveryPromise() {
               {/* Text Section */}
               <div className=" w-full lg:w-[40%] text-center lg:text-left">
                 <h3 className="text-4xl lg:text-5xl font-bold mb-4">
-                  After <span className="text-sky-400">launch</span>
+                  After <span className="">launch</span>
                 </h3>
-                <p className="text-gray-400 text-lg leading-relaxed">
+                <p className="text-gray-400 text-lg pb-4 lg:pb-0 leading-relaxed">
                   Optional Monthly Growth Sprints.
                 </p>
 
