@@ -23,7 +23,6 @@ const IdeaSection: React.FC = () => {
     }
   };
 
-
   const handleSearch = () => {
     console.log('Search query:', searchQuery);
     // Handle search logic here - could trigger search functionality, API calls, etc.
@@ -34,6 +33,25 @@ const IdeaSection: React.FC = () => {
       handleSearch();
     }
   };
+
+  // Mic icon SVG component
+  const MicIcon = () => (
+    <svg 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/>
+      <path d="M19 10v1a7 7 0 0 1-14 0v-1"/>
+      <line x1="12" y1="19" x2="12" y2="23"/>
+      <line x1="8" y1="23" x2="16" y2="23"/>
+    </svg>
+  );
 
   return (
     <div className="min-h-screen pb-12 bg-black relative overflow-hidden">
@@ -79,7 +97,7 @@ const IdeaSection: React.FC = () => {
           Your idea deserves momentum. Start here.
         </p>
 
-        {/* Search Box section - Increased width */}
+        {/* Search Box section - Responsive width */}
         <div className="max-w-3xl w-full mx-auto mb-8 p-3 rounded-full relative">
           {/* Always-visible Glow */}
           <div className="absolute inset-0 rounded-[25.875px] bg-[#01ACFF66] blur-2xl animate-pulse"></div>
@@ -96,7 +114,7 @@ const IdeaSection: React.FC = () => {
                          rounded-[23px]
                          border-none
                          bg-black/90 
-                         pl-12 pr-16 py-4 
+                         pl-12 pr-16 sm:pr-32 md:pr-40 py-4 
                          text-lg 
                          text-white
                          placeholder-gray-400
@@ -108,14 +126,27 @@ const IdeaSection: React.FC = () => {
             <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center z-10">
                <Image src={Star} alt="search icon" className="w-5 h-5" />
             </div>
-              <button
+            
+            {/* Desktop Button - "Do the magic" */}
+            <button
               onClick={redirectToHeroSection}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 
+              className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 
                          text-white rounded-[12px] px-3 py-2 transition-colors duration-300 
-                         flex items-center gap-2 z-10"
+                         items-center gap-2 z-10"
             >
               <Image src={Star} alt="search icon" className="w-5 h-5" />
-              <span>Do the magic</span>
+              <span className="text-sm font-medium">Do the magic</span>
+            </button>
+
+            {/* Mobile Button - Mic Icon */}
+            <button
+              onClick={redirectToHeroSection}
+              className="sm:hidden absolute right-3 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 
+                         text-white rounded-full p-2.5 transition-colors duration-300 
+                         flex items-center justify-center z-10"
+              aria-label="Voice search"
+            >
+              <MicIcon />
             </button>
           </div>
         </div>

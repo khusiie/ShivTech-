@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-3 gap-8">
           <div>
             <h4 className="font-bold mb-2">Quick Links</h4>
-            <ul className="space-y-1 text-sm">
+            <ul className="space-y-1 text-[12px] lg:text-sm">
               <li>Works</li>
               <li>Why us</li>
               <li>Process</li>
@@ -32,14 +32,14 @@ const Footer: React.FC = () => {
           </div>
           <div>
             <h4 className="font-bold mb-2">Contact</h4>
-            <ul className="space-y-1 text-xs lg:text-sm">
+            <ul className="space-y-1 text-[12px] lg:text-sm">
               <li>hello@shivaitech.com</li>
               <li>(1234) 567-890</li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-2">Legal</h4>
-            <ul className="space-y-1 text-sm">
+            <ul className="space-y-1 text-[12px] md:text-sm">
               <li>Terms of Service</li>
               <li>Privacy Policy</li>
               <li>Careers</li>
