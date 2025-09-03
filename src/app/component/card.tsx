@@ -77,7 +77,7 @@ const TwoCardsLayout: React.FC = () => {
           <h2 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-white/95">AI Inside</h2>
           <div className='w-full h-px bg-slate-600/30 mb-3 sm:mb-4'></div>
           
-          <div className="space-y-4 sm:space-y-6 flex-1">
+          <div className="space-y-4 sm:space-y-8 flex-1">
             {aiInsideItems.map((item, index) => (
               <div key={index} className="relative group">
                 <div className="flex items-center gap-2 sm:gap-3">
@@ -115,7 +115,7 @@ const TwoCardsLayout: React.FC = () => {
           <h2 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-white/95">Artifacts</h2>
           <div className='w-full h-px bg-slate-600/30 mb-3 sm:mb-4'></div>
           
-          <div className="space-y-4 sm:space-y-5 flex-1">
+          <div className="space-y-4 sm:space-y-6 flex-1">
             {artifactsItems.map((item, index) => (
               <div key={index} className="group">
                 <div className="flex items-center gap-2 sm:gap-3">
