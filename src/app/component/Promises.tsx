@@ -40,11 +40,11 @@ export default function DeliveryPromise() {
       <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Promises
         </span>
-<h2 className="text-7xl pt-4 md:text-[64px] font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+<h2 className="text-4xl pt-4 md:text-7xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
   Delivery Promise
 </h2>
 
-<p className="mt-3 text-4xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+<p className="mt-3 text-xl md:text-4xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
   60 Days, Fixed Price
 </p>
 
