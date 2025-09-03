@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, User, HelpCircle, Rocket, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import first from "../../../public/assets/howitworks/first.svg";
 import second from "../../../public/assets/howitworks/second.svg";
@@ -34,7 +34,7 @@ const HowitWorks = () => {
 ),
 
             title: "Tell Us Your Idea",
-            description: "In Your Own Words, Right In The Phone! But...",
+            description: "In Your Own Words, Write in the Prompt Box...",
             isActive: activeStep === 1
         },
         {
@@ -64,7 +64,7 @@ const HowitWorks = () => {
   />
 ),
             title: "Launch",
-            description: "Get A Working MVP In 30—45 Days, Fixed-Price.",
+            description: "Get A Working MVP In 60 Days, Fixed-Price.",
             isActive: activeStep === 3
         }
     ];
@@ -217,8 +217,8 @@ const HowitWorks = () => {
         className={`
           relative p-4 md:p-5 transition-all duration-500 cursor-pointer 
           ${isCurrentlyActive
-            ? 'bg-blue-600/20 border-2 border-blue-500/50 shadow-lg shadow-blue-500/20'
-            : 'bg-[rgba(0,102,153,0.20)] border border-gray-800 hover:bg-gray-900/50'
+            ? 'bg-[#069] border-2 border-blue-500/50 shadow-lg shadow-blue-500/20'
+            : 'bg-[#00669933] border border-gray-800 hover:bg-gray-900/50'
           }
         `}
         style={{
