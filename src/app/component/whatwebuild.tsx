@@ -33,7 +33,7 @@ const cardData = [
 
 const Test = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-9 bg-black">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-black">
       {cardData.map((card, idx) => (
         <div
           key={idx}
@@ -58,7 +58,7 @@ const Test = () => {
             <h2 className="font-sora text-[24px] font-bold leading-[42px] capitalize">
               {card.title}
             </h2>
-            <p className="font-satoshi text-[16px] font-normal text-white/80">
+            <p className="font-satoshi text-[16px] font-normal text-white">
   {card.para}
             </p>
 
