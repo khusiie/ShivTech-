@@ -1,5 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactElement } from "react";
+
+// Define a type for a technology item
+interface TechItem {
+  name: string;
+  svg: ReactElement;
+}
 
 const techStack = [
   { 
@@ -76,164 +82,236 @@ const techStack = [
  
 ];
 
-export default function Technologies() {
-  const [active, setActive] = useState<number>(2);       
+// Define a type for styles returned by getCardStyle
+interface CardStyle {
+  size: string;
+  padding: string;
+  zIndex: string;
+  scale: string;
+  opacity: string;
+}
+
+export default function Technologies(): ReactElement {
+  const [active, setActive] = useState<number>(2); // default index
   const [hovered, setHovered] = useState<number | null>(null);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  // Autoplay functionality
+  // Responsive check for mobile
+  const [isMobile, setIsMobile] = useState<boolean>(
+    typeof window !== "undefined" ? window.innerWidth < 1024 : false
+  );
+
   useEffect(() => {
-    if (!isAutoPlaying || hovered !== null) return;
+    function updateSize() {
+      setIsMobile(window.innerWidth < 1024);
+    }
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  // Autoplay effect: change active tech every 2 seconds if not paused
+  useEffect(() => {
+    if (!isAutoPlaying || hovered !== null || isMobile) return;
 
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % techStack.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, hovered]);
+  }, [isAutoPlaying, hovered, isMobile]);
 
-  // Pause autoplay when user interacts
-  const handleUserInteraction = (idx: number) => {
+  // Handlers with typed parameters
+  const handleUserInteraction = (idx: number): void => {
     setIsAutoPlaying(false);
     setActive(idx);
-    
-    setTimeout(() => {
-      setIsAutoPlaying(true);
-    }, 5000);
+    setTimeout(() => setIsAutoPlaying(true), 5000);
   };
 
-  const handleMouseEnter = (idx: number) => {
+  const handleMouseEnter = (idx: number): void => {
     setHovered(idx);
     setIsAutoPlaying(false);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (): void => {
     setHovered(null);
-    setTimeout(() => {
-      setIsAutoPlaying(true);
-    }, 1000);
-  }; 
+    setTimeout(() => setIsAutoPlaying(true), 1000);
+  };
 
-  // Calculate sizes and positions for desktop
-  const getCardStyle = (idx: number) => {
+  // Card style logic with return type
+  const getCardStyle = (idx: number): CardStyle => {
+    if (isMobile) {
+      return {
+        size: "w-16 h-16",
+        padding: "p-4",
+        zIndex: "",
+        scale: "",
+        opacity: "opacity-100",
+      };
+    }
     const displayActive = hovered !== null ? hovered : active;
     const isActive = idx === displayActive;
     const distance = Math.abs(idx - displayActive);
-    
+
     if (isActive) {
       return {
         size: "w-20 h-20",
         padding: "p-5",
         zIndex: "z-50",
         scale: "scale-110",
-        opacity: "opacity-100"
+        opacity: "opacity-100",
       };
-    } else if (distance === 1) {
+    }
+    if (distance === 1) {
       return {
         size: "w-16 h-16",
-        padding: "p-4", 
+        padding: "p-4",
         zIndex: "z-30",
         scale: "scale-100",
-        opacity: "opacity-90"
+        opacity: "opacity-90",
       };
-    } else if (distance === 2) {
+    }
+    if (distance === 2) {
       return {
         size: "w-12 h-12",
         padding: "p-3",
-        zIndex: "z-20", 
+        zIndex: "z-20",
         scale: "scale-90",
-        opacity: "opacity-75"
-      };
-    } else {
-      return {
-        size: "w-10 h-10",
-        padding: "p-2",
-        zIndex: "z-10",
-        scale: "scale-80", 
-        opacity: "opacity-60"
+        opacity: "opacity-75",
       };
     }
+    return {
+      size: "w-10 h-10",
+      padding: "p-2",
+      zIndex: "z-10",
+      scale: "scale-80",
+      opacity: "opacity-60",
+    };
   };
 
   return (
-    <section className="hidden lg:flex w-full bg-black text-white py-16 flex-col items-center px-4 overflow-hidden">
-      {/* Badge */}
-      <span className="text-sm px-3 py-1 rounded-full text-gray-400 mb-4">
-        Our Stack
-      </span>
+    <section className="w-full bg-black text-white py-10 px-2 flex flex-col items-center overflow-hidden">
+      <span className="text-sm px-3 py-1 rounded-full text-gray-400 mb-4">Our Stack</span>
 
-      {/* Heading */}
-      <h2 className="text-6xl font-bold mb-16 text-center">
+      <h2 className="text-4xl sm:text-6xl font-bold mb-10 sm:mb-16 text-center">
         Technologies We Used
       </h2>
 
-      {/* Tech Icons Container */}
-      <div className="relative w-full max-w-5xl h-32 mb-12">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex items-center justify-center space-x-8">
-            {techStack.map((tech, idx) => {
-              const { size, padding, scale, opacity, zIndex } = getCardStyle(idx);
-              const displayActive = hovered !== null ? hovered : active;
-              const isActive = idx === displayActive;
-              
-              return (
-                <button
-                  key={idx}
-                  onClick={() => handleUserInteraction(idx)}
-                  onMouseEnter={() => handleMouseEnter(idx)}
-                  onMouseLeave={handleMouseLeave}
-                  className={`relative transition-all duration-500 ease-out transform ${isActive
-                      ? "text-white"
-                      : "bg-gray-800/50 hover:bg-gray-700/60 text-gray-300 hover:text-white border border-gray-700/50"
-                  } ${padding} ${scale} ${opacity} ${zIndex}`}
-                  style={{
-                    borderRadius: '12px',
-                    background: isActive 
-                      ? 'linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)'
-                      : undefined,
-                    transform: isActive 
-                      ? 'scale(1.2) translateY(-8px)' 
-                      : hovered === idx 
-                        ? 'scale(1.1) translateY(-4px)' 
-                        : 'scale(1)',
-                    boxShadow: isActive 
-                      ? '0 0 78.85px 0 rgba(153, 221, 255, 0.50)' 
-                      : hovered === idx 
-                        ? '0 10px 25px -5px rgba(0, 0, 0, 0.3)' 
-                        : 'none',
-                  }}
-                >
-                  <div className={`transition-all duration-300 ${size}`}>
-                    {tech.svg}
-                  </div>
-                </button>
-              );
-            })}
+      {isMobile ? (
+        <div className="w-full flex flex-col items-center mb-8">
+          <div className="flex items-center justify-center w-full">
+            <button
+              aria-label="Previous"
+              onClick={() => setActive((active - 1 + techStack.length) % techStack.length)}
+              className="p-2 text-cyan-400 active:scale-90"
+            >
+              ◀
+            </button>
+            <div className="mx-6">
+              <div
+                className="transition-all duration-300 w-16 h-16 mx-auto flex items-center justify-center"
+                style={{
+                  borderRadius: "12px",
+                  background: "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)",
+                  boxShadow: "0 0 48px 0 rgba(153, 221, 255, 0.25)",
+                }}
+              >
+                {techStack[active].svg}
+              </div>
+              <p className="mt-4 text-xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent text-center">
+                {techStack[active].name}
+              </p>
+            </div>
+            <button
+              aria-label="Next"
+              onClick={() => setActive((active + 1) % techStack.length)}
+              className="p-2 text-cyan-400 active:scale-90"
+            >
+              ▶
+            </button>
+          </div>
+          <div className="flex space-x-2 mt-5 justify-center">
+            {techStack.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleUserInteraction(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  active === idx
+                    ? "bg-cyan-400 w-5 shadow-lg shadow-cyan-400/50"
+                    : "bg-gray-600 hover:bg-gray-400"
+                }`}
+                aria-label={`Goto ${techStack[idx].name}`}
+              />
+            ))}
           </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="relative w-full max-w-5xl h-32 mb-12">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex items-center justify-center space-x-3 sm:space-x-8">
+                {techStack.map((tech, idx) => {
+                  const { size, padding, scale, opacity, zIndex } = getCardStyle(idx);
+                  const displayActive = hovered !== null ? hovered : active;
+                  const isActive = idx === displayActive;
 
-      {/* Active Technology Name */}
-      <div className="text-center min-h-[80px] flex flex-col items-center justify-center">
-        <p className="text-3xl font-bold transition-all duration-300 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-          {techStack[hovered !== null ? hovered : active].name}
-        </p>
-      </div>
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleUserInteraction(idx)}
+                      onMouseEnter={() => handleMouseEnter(idx)}
+                      onMouseLeave={handleMouseLeave}
+                      className={`relative transition-all duration-500 ease-out transform ${
+                        isActive
+                          ? "text-white"
+                          : "bg-gray-800/50 hover:bg-gray-700/60 text-gray-300 hover:text-white border border-gray-700/50"
+                      } ${padding} ${scale} ${opacity} ${zIndex}`}
+                      style={{
+                        borderRadius: "12px",
+                        background: isActive
+                          ? "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)"
+                          : undefined,
+                        transform: isActive
+                          ? "scale(1.2) translateY(-8px)"
+                          : hovered === idx
+                          ? "scale(1.1) translateY(-4px)"
+                          : "scale(1)",
+                        boxShadow: isActive
+                          ? "0 0 78.85px 0 rgba(153, 221, 255, 0.50)"
+                          : hovered === idx
+                          ? "0 10px 25px -5px rgba(0, 0, 0, 0.3)"
+                          : "none",
+                      }}
+                      aria-label={`Goto ${tech.name}`}
+                    >
+                      <div className={`transition-all duration-300 ${size}`}>{tech.svg}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <div className="text-center min-h-[60px] flex flex-col items-center justify-center">
+            <p className="text-3xl font-bold transition-all duration-300 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              {techStack[hovered !== null ? hovered : active].name}
+            </p>
+          </div>
 
-      {/* Navigation dots */}
-      <div className="flex space-x-2 mt-6">
-        {techStack.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => handleUserInteraction(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              (hovered !== null ? hovered : active) === idx
-                ? "bg-cyan-400 w-6 shadow-lg shadow-cyan-400/50"
-                : "bg-gray-600 hover:bg-gray-400"
-            }`}
-          />
-        ))}
-      </div>
+          <div className="flex space-x-2 mt-6">
+            {techStack.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleUserInteraction(idx)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  (hovered !== null ? hovered : active) === idx
+                    ? "bg-cyan-400 w-6 shadow-lg shadow-cyan-400/50"
+                    : "bg-gray-600 hover:bg-gray-400"
+                }`}
+                aria-label={`Goto ${techStack[idx].name}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </section>
   );
 }
