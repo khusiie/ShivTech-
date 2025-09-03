@@ -11,7 +11,7 @@ export default function BuildProcess() {
         <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Tooling & Outputs
         </span>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
           AI-First Build Process
         </h2>
       </div>

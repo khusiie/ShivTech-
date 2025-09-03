@@ -173,19 +173,20 @@ export default function Testimonials(): React.ReactElement {
       `}</style>
 
       <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20 text-center overflow-hidden">
-        {/* Top Logos Arc */}
-        <div className="relative w-full flex justify-center mb-12">
-          <div className="relative flex gap-12 flex-wrap justify-center">
-            <Image
-              src={Logobg}
-              alt="brand"
-              className="w-full h-full object-contain"
-            />
-            <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 bg-black/50 backdrop-blur-sm">
-              Testimonials
-            </span>
-          </div>
-        </div>
+      {/* Top Logos Arc */}
+<div className="relative w-full flex justify-center mb-12">
+  <div className="relative flex gap-12 flex-wrap justify-center">
+    <Image
+      src={Logobg}
+      alt="brand"
+      className="object-contain w-[150%] pb-12 md:pb-0 lg:pb-0 md:w-full h-auto"
+    />
+    <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 bg-black/50 backdrop-blur-sm">
+      Testimonials
+    </span>
+  </div>
+</div>
+
 
         {/* Heading */}
         <h2 className="text-3xl md:text-6xl font-bold mb-12">

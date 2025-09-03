@@ -34,11 +34,11 @@ export default function WorkSnapshots() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-sm uppercase tracking-wide text-gray-400 mb-2">
+           <span className="px-3 py-1 rounded-full font-lg  border border-gray-700 text-sm text-gray-300 mb-4">
           Proof
-        </p>
-        <h2 className="text-4xl md:text-6xl font-bold">
-          Work <span className="text-sky-400">Snapshots</span>
+        </span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+         Work Snapshots
         </h2>
         <p className="mt-3 text-gray-400">
           Proof In Days, Not Months.
@@ -79,7 +79,7 @@ export default function WorkSnapshots() {
         transition={{ duration: 0.4, delay: 0.5 }}
         className="mt-10"
       >
-        <button className="px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 transition-all text-black font-medium shadow-lg">
+        <button className="px-6 py-3 rounded-full bg-[#069]  text-white font-medium shadow-amber-50">
           View Build Notes
         </button>
       </motion.div>
