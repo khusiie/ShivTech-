@@ -23,29 +23,29 @@ const GridBackground = () => {
 };
 
 const cardData = [
-  { title: "AI Apps & Agents", image: "/assets/ai.svg" },
-  { title: "SaaS Platforms", image: "/assets/graph.svg" },
-  { title: "Web3 DApps", image: "/assets/transaction.svg" },
-  { title: "Mobile Apps", image: "/assets/phone.svg" },
-  { title: "Enterprise Integrations", image: "/assets/shivi.svg" },
-  { title: "Data & DevOps", image: "/assets/data.svg" },
+  { title: "AI Apps & Agents", image: "/assets/ai.svg" ,para :"Gen-AI products, voice bots, RAG apps, and analytics copilots built to scale."},
+  { title: "SaaS Platforms", image: "/assets/graph.svg",para:"Subscriptions, roles, dashboards, and billing systems — end-to-end SaaS foundations." },
+  { title: "Web3 DApps", image: "/assets/transaction.svg",para:"Wallets, NFT gating, and on-chain logic — built where Web3 truly adds value." },
+  { title: "Mobile Apps", image: "/assets/phone.svg",para:"Cross-platform builds with a native feel and smooth performance." },
+  { title: "Enterprise Integrations", image: "/assets/shivi.svg",para:"CRM/ERP connections, data pipelines, and automations that unify your workflows." },
+  { title: "Data & DevOps", image: "/assets/data.svg" , para:"Secure infrastructure, CI/CD pipelines, and observability baked in from day one."},
 ];
 
 const Test = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-black">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-9 bg-black">
       {cardData.map((card, idx) => (
         <div
           key={idx}
           className="flex flex-col justify-between rounded-2xl bg-gradient-to-b from-[#0A0F1C] to-[#101826] text-white"
         >
-          <div className="relative flex items-center justify-center p-6 overflow-hidden">
+          <div className="relative flex items-center justify-center  rounded-t-xl p-6 pb-4 overflow-hidden">
             <GridBackground />
 
             {/* Blur */}
             <div className="absolute -top-[220px] -left-[220px] w-[483px] h-[439.558px] rounded-[483px] bg-[#0084FF] blur-[217.55px] pointer-events-none z-[1]" />
 
-            {/* ✅ Plain <img> */}
+        
             <img
               src={card.image}
               alt={card.title}
@@ -54,12 +54,12 @@ const Test = () => {
           </div>
 
           {/* Text Section */}
-          <div className="relative flex p-5 flex-col items-start gap-2 shrink-0 bg-[rgba(255,255,255,0.10)] rounded-xl overflow-hidden">
-            <h2 className="font-sora text-[30px] font-bold leading-[42px] capitalize">
+          <div className="relative flex p-5 flex-col items-start gap-2 shrink-0 bg-[rgba(255,255,255,0.10)] rounded-b-xl overflow-hidden">
+            <h2 className="font-sora text-[24px] font-bold leading-[42px] capitalize">
               {card.title}
             </h2>
-            <p className="font-satoshi text-[24px] font-normal text-white/80">
-              Gen-AI products, voice bots, RAG apps, and analytics copilots built to scale.
+            <p className="font-satoshi text-[16px] font-normal text-white/80">
+  {card.para}
             </p>
 
             <div className="absolute left-1/2 -translate-x-1/2 w-[438px] h-[438px] rounded-full bg-[rgba(43,167,255,0.60)] blur-[75px] pointer-events-none" />

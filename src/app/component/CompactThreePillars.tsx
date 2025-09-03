@@ -39,20 +39,20 @@ const CompactThreePillars = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-black relative font-sora">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="py-12 sm:py-16 lg:py-20 bg-black relative font-sora">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-2 mb-6 hover:bg-gray-800/80 transition-all cursor-pointer group">
-            <div className="flex items-center justify-center w-6 h-6 bg-gradient-to-br from-blue-400/50 to-blue-600/30 rounded-full">
-              <Image src={star} alt="Star" width={18} height={18} />
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-2 mb-4 sm:mb-6 hover:bg-gray-800/80 transition-all cursor-pointer group">
+            <div className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-400/50 to-blue-600/30 rounded-full">
+              <Image src={star} alt="Star" width={16} height={16} className="sm:w-[18px] sm:h-[18px]" />
             </div>
-            <span className="text-white text-sm">3 Pillars</span>
-            <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
+            <span className="text-white text-xs sm:text-sm">3 Pillars</span>
+            <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
           </div>
           
           <h2 
-            className="text-3xl md:text-6xl font-bold leading-tight"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4 sm:px-0"
             style={{
               background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
               backgroundClip: 'text',
@@ -65,7 +65,7 @@ const CompactThreePillars = () => {
         </div>
 
         {/* Pillars */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
           {pillars.map((pillar, index) => {
             const isHovered = hoveredIndex === index;
             
@@ -80,27 +80,61 @@ const CompactThreePillars = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div 
-                  className="group py-4 px-4 md:py-5 md:px-8 rounded-lg transition-all duration-300 hover:scale-[1.01] cursor-pointer"
+                  className="group py-4 px-4 sm:py-5 sm:px-6 lg:py-6 lg:px-8 rounded-lg transition-all duration-300 hover:scale-[1.01] cursor-pointer"
                   style={isHovered ? {
                     background: 'linear-gradient(90deg, #01AAFF 0%, #000 62.5%)'
                   } : undefined}
                 >
-                  <div className="flex items-center gap-8 md:gap-18">
+                  {/* Mobile Layout - Stacked */}
+                  <div className="flex flex-col sm:hidden gap-3">
+                    {/* Top row - Number and Icon */}
+                    <div className="flex items-center justify-between">
+                      <div className={`text-3xl font-bold transition-colors duration-300 ${
+                        isHovered ? 'text-white' : 'text-gray-300'
+                      }`}>
+                        {pillar.number}
+                      </div>
+                      <Image 
+                        src={icon} 
+                        alt="AI Icon" 
+                        width={28} 
+                        height={32}
+                        className="w-7 h-8"
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <div>
+                      <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                        isHovered ? 'text-white' : 'text-white group-hover:text-cyan-400'
+                      }`}>
+                        {pillar.title}
+                      </h3>
+                      <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                        isHovered ? 'text-gray-200' : 'text-gray-400'
+                      }`}>
+                        {pillar.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Tablet & Desktop Layout - Horizontal */}
+                  <div className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
                     {/* Number */}
-                    <div className={`text-4xl md:text-6xl font-bold transition-colors duration-300 ${
+                    <div className={`text-3xl md:text-5xl lg:text-6xl font-bold transition-colors duration-300 flex-shrink-0 ${
                       isHovered ? 'text-white' : 'text-gray-300'
                     }`}>
                       {pillar.number}
                     </div>
 
                     {/* Content */}
-                    <div className="flex-1">
-                      <h3 className={`text-xl md:text-3xl font-bold mb-2 transition-colors duration-300 ${
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2 transition-colors duration-300 ${
                         isHovered ? 'text-white' : 'text-white group-hover:text-cyan-400'
                       }`}>
                         {pillar.title}
                       </h3>
-                      <p className={`text-base md:text-lg transition-colors duration-300 ${
+                      <p className={`text-sm md:text-base lg:text-lg leading-relaxed transition-colors duration-300 ${
                         isHovered ? 'text-gray-200' : 'text-gray-400'
                       }`}>
                         {pillar.subtitle}
@@ -113,7 +147,7 @@ const CompactThreePillars = () => {
                       alt="AI Icon" 
                       width={36} 
                       height={45}
-                      className="w-9 h-11 md:w-12 md:h-15"
+                      className="w-8 h-10 md:w-9 md:h-11 lg:w-12 lg:h-15 flex-shrink-0"
                     />
                   </div>
                 </div>

@@ -40,7 +40,7 @@ export default function DeliveryPromise() {
       <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Promises
         </span>
-<h2 className="text-4xl pt-4 md:text-7xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+<h2 className="text-5xl pt-4 md:text-7xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
   Delivery Promise
 </h2>
 
@@ -123,7 +123,7 @@ export default function DeliveryPromise() {
                 <h3 className="text-4xl lg:text-5xl font-bold mb-4">
                   After <span className="">launch</span>
                 </h3>
-                <p className="text-gray-400 text-lg pb-4 lg:pb-0 leading-relaxed">
+                <p className="text-gray-400 text-lg pb-4 px-2 lg:px-0 lg:pb-0 leading-relaxed">
                   Optional Monthly Growth Sprints.
                 </p>
 
