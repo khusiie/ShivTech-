@@ -220,28 +220,37 @@ const HeroSection = () => {
 
 
                 {/* Previous Questions Summary */}
-                <div className="mb-8 space-y-4">
-                  {questions.map((question, index) => (
-                    <div key={index} className="bg-cyan-500/10 backdrop-blur-sm rounded-2xl p-4 border border-cyan-400/20">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-cyan-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
-                          Q
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-cyan-200 text-sm mb-2 font-medium">{question}</p>
-                          {answers[index] && (
-                            <div className="flex items-start gap-2">
-                              <div className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-white text-xs">👤</span>
-                              </div>
-                              <p className="text-white text-sm">{answers[index]}</p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+<div className="mb-8 space-y-6">
+  {questions.map((question, index) => (
+    <div key={index} className="space-y-4">
+      {/* Question - Left side */}
+      <div className="flex justify-start">
+        <div className="flex items-start gap-3 max-w-2xl">
+          <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm font-bold">
+            Q
+          </div>
+          <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 border border-cyan-400/30">
+            <p className="text-cyan-100 font-medium">{question}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Answer - Right side (if exists) */}
+      {answers[index] && (
+        <div className="flex justify-end">
+          <div className="flex items-start gap-3 max-w-2xl">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
+              <p className="text-white">{answers[index]}</p>
+            </div>
+            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-sm">👤</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
                 {/* Success Animation */}
                 <div className="text-center mb-8">
                    <div className="text-center mb-8">
@@ -321,51 +330,53 @@ const HeroSection = () => {
                 </div>
 
                
-                {currentQuestion > 0 && (
-                  <div className="mb-6 max-h-64 overflow-y-auto space-y-3 pr-2">
-                    {Array.from({ length: currentQuestion }).map((_, index) => (
-                      <div key={index} className="bg-cyan-500/10 backdrop-blur-sm rounded-2xl p-4 border border-cyan-400/20">
-                        <div className="flex items-start gap-3 mb-3">
-                          <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
-                            Q
-                          </div>
-                          <p className="text-cyan-200 text-sm font-medium flex-1">{questions[index]}</p>
-                        </div>
-                        <div className="flex items-start gap-3 ml-9">
-                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs">👤</span>
-                          </div>
-                          <p className="text-white text-sm flex-1">{answers[index]}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+              {currentQuestion > 0 && (
+  <div className="mb-6 max-h-64 overflow-y-auto space-y-4 pr-2">
+    {Array.from({ length: currentQuestion }).map((_, index) => (
+      <div key={index} className="space-y-3">
+        {/* Previous Question - Left side */}
+        <div className="flex justify-start">
+          <div className="flex items-start gap-3 max-w-xl">
+            <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
+              Q
+            </div>
+            <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
+              <p className="text-cyan-200 text-sm font-medium">{questions[index]}</p>
+            </div>
+          </div>
+        </div>
 
-                {/* Current Question */}
-                <div className="mb-8">
-                  <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl p-1 mb-6">
-                    <div className="bg-cyan-500/30 rounded-2xl p-6 border border-cyan-400/20">
-                      <div className="flex items-start gap-4">
-                        <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
-                          <span className="text-sm font-bold">Q</span>
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-white text-lg leading-relaxed font-medium">
-                            {questions[currentQuestion]}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* User Type Indicator */}
-                  <div className="flex items-center justify-between mb-8 px-2">
-                    <span className="text-gray-300 text-sm">Early-stage startup founders</span>
-                    <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                      <span className="text-white text-sm">👤</span>
-                    </div>
-                  </div>
-                </div>
+        {/* Previous Answer - Right side */}
+        <div className="flex justify-end">
+          <div className="flex items-start gap-3 max-w-xl">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-3 border border-white/20">
+              <p className="text-white text-sm">{answers[index]}</p>
+            </div>
+            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-xs">👤</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+
+{/* Current Question - Left side (same style as previous) */}
+<div className="mb-8">
+  <div className="flex justify-start">
+    <div className="flex items-start gap-3 max-w-2xl">
+      <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
+        <span className="text-sm font-bold">Q</span>
+      </div>
+      <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
+        <p className="text-white text-lg leading-relaxed font-medium">
+          {questions[currentQuestion]}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
                 {/* Answer Input - Expandable */}
                 <div className="relative mb-6">
