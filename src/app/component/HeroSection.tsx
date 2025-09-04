@@ -5,6 +5,10 @@ import Star from "../../../public/assets/Hero/star.svg";
 import Image from 'next/image';
 import bg from '../../../public/assets/Hero/bg.svg';
 import icon from '../../../public/assets/navbar/navbuttonicon.svg';
+import email  from '../../../public/assets/HeroSection/email.svg';
+import fill from '../../../public/assets/HeroSection/fill.svg';
+import location from '../../../public/assets/HeroSection/location.svg';
+import solor from '../../../public/assets/HeroSection/solor.svg';
 
 const mic = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 1c-1.66 0-3 1.34-3 3v8c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3zm0 2c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1s-1-.45-1-1V4c0-.55.45-1 1-1zm-1 14.93c-3.94-.49-7-3.85-7-7.93h2c0 2.76 2.24 5 5 5s5-2.24 5-5h2c0 4.08-3.06 7.44-7 7.93V19h3v2H9v-2h3v-1.07z'/%3E%3C/svg%3E";
 
@@ -423,7 +427,7 @@ const HeroSection = () => {
                     onChange={handleIdeaInputChange}
                     onFocus={handleIdeaInputFocus}
                     placeholder="ask anything..."
-                    className="w-full rounded-3xl border-none bg-black/90 pl-12 pr-16 py-4 text-lg text-white placeholder-gray-400 focus:outline-none relative z-10"
+                    className="w-full rounded-3xl border-none bg-[#001824] pl-12 pr-16 py-4 text-lg text-white placeholder-gray-400 focus:outline-none relative z-10"
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center z-10">
                     <Image src={Star} alt="Star icon" className="w-5 h-5" />
@@ -442,17 +446,17 @@ const HeroSection = () => {
               <div className="space-y-6">
                 {/* Main Idea Input */}
                 <div className="relative">
-                  <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse"></div>
+                  <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse border-bottom: none;"></div>
                   <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-white/20">
                     <div className="relative">
-                      <Image src={Star} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
+                      <Image src={fill} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
                       <textarea
                         name="idea"
                         value={formData.idea}
                         onChange={handleInputChange}
                         placeholder="I want an AI app that looks when appointments are missed..."
                         rows={4}
-                        className="w-full rounded-2xl border-none bg-black/90 pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
+                        className="w-full rounded-2xl border-none bg-[#001824] pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
                       />
                       <button
                         onClick={handleDoMagic}
@@ -473,8 +477,8 @@ const HeroSection = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="✉️"
-                        className="w-full rounded-2xl border-none bg-black/70 px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
+                        placeholder="Enter Email"
+                        className="w-full rounded-2xl border-none bg-[#001824]  px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -485,37 +489,48 @@ const HeroSection = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="👤"
-                        className="w-full rounded-2xl border-none bg-black/70 px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
+                        placeholder="Name"
+                        className="w-full rounded-2xl border-none bg-[#001824]  px-4 py-3 text-[#FFFFFF] placeholder-gray-400 focus:outline-none"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="🏢"
-                      className="w-full rounded-2xl border-none bg-black/70 px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <input
-                    type="checkbox"
-                    name="needIn30Days"
-                    id="needIn30Days"
-                    checked={formData.needIn30Days}
-                    onChange={handleInputChange}
-                    className="w-5 h-5 rounded border-2 border-white/40 bg-black/70 text-cyan-400 focus:ring-cyan-400 focus:ring-2"
-                  />
-                  <label htmlFor="needIn30Days" className="text-white text-sm cursor-pointer">
-                    Need in 30 days?
-                  </label>
-                </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
+    <input
+      type="text"
+      name="Company"
+      value={formData.company}
+      onChange={handleInputChange}
+      placeholder="Company"
+      className="w-full rounded-2xl border-none bg-[#001824] px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
+    />
+  </div>
+
+  {/* Mirror the outer wrapper styling */}
+  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
+    <div className="rounded-2xl bg-[#001824]">
+      <div className="flex items-center space-x-3 px-4 py-3">
+        <input
+          type="checkbox"
+          name="needIn30Days"
+          id="needIn30Days"
+          checked={formData.needIn30Days}
+          onChange={handleInputChange}
+          className="w-5 h-5 rounded  bg-[#001824]  appearance-none"
+        />
+        <label
+          htmlFor="needIn30Days"
+          className="text-white text-sm cursor-pointer"
+        >
+          Need in 30 days?
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+              
                 <div className="flex justify-center">
                   <button
                     onClick={handleSubmit}
