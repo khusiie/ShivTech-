@@ -5,11 +5,11 @@ import Star from "../../../public/assets/Hero/star.svg";
 import Image from 'next/image';
 import bg from '../../../public/assets/Hero/bg.svg';
 import Icon from "../../../public/assets/navbar/navbuttonicon.svg";
-import email  from '../../../public/assets/HeroSection/email.svg';
+import email from '../../../public/assets/HeroSection/email.svg';
 import fill from '../../../public/assets/HeroSection/fill.svg';
 import location from '../../../public/assets/HeroSection/location.svg';
 import solor from '../../../public/assets/HeroSection/solor.svg';
-import  Mic from  '../../../public/assets/HeroSection/mic.svg';
+import Mic from '../../../public/assets/HeroSection/mic.svg';
 
 
 const checkmark = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L5.53 12.7a.996.996 0 10-1.41 1.41L9 19l11-11a.996.996 0 10-1.41-1.41L9 16.17z'/%3E%3C/svg%3E";
@@ -137,8 +137,8 @@ const HeroSection = () => {
         />
       </div>
 
-    
-      
+
+
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
@@ -148,76 +148,74 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 pt-25 pb-20">
         <div className="max-w-6xl mx-auto text-center">
-       {/* Main Heading - Hidden on desktop (lg and above) */}
-<h1 className="lg:hidden text-3xl md:text-7xl font-bold mt-4 mb-4 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
-  From Idea to Impact in 60 Days
-</h1>
+          {/* Main Heading - Hidden on desktop (lg and above) */}
+          <h1 className="lg:hidden text-3xl md:text-7xl font-bold mt-4 mb-4 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+            From Idea to Impact in 60 Days
+          </h1>
 
-{/* Subtitle - Hidden on desktop (lg and above) */}
-<p className="lg:hidden text-sm md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed text-center">
-  Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your
-  MVP—Fixed Price. AI-First. Hand-In-Hand.
-</p>
+          {/* Subtitle - Hidden on desktop (lg and above) */}
+          <p className="lg:hidden text-sm md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed text-center">
+            Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your
+            MVP—Fixed Price. AI-First. Hand-In-Hand.
+          </p>
 
           <div className="hidden md:block">
-  <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
-    From Idea to Impact
-    <br />
-    in 60 Days
-  </h1>
-  {/* Subtitle */}
-  <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed">
-    Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your<br />
-    MVP—Fixed Price. AI-First. Hand-In-Hand.
-  </p>
-</div>
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+              From Idea to Impact
+              <br />
+              in 60 Days
+            </h1>
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed">
+              Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your<br />
+              MVP—Fixed Price. AI-First. Hand-In-Hand.
+            </p>
+          </div>
           {showCompletion ? (
             /* Completion UI - "All set!" screen */
             <div className="max-w-2xl mx-auto mb-8">
               <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-                       <div className="text-center mb-8">
+                <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold text-white mb-3">Quick Questions</h2>
                   <p className="text-gray-300 text-base">
                     Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
                   </p>
                 </div>
-                
-           <div className="flex justify-center items-center gap-3 mb-10">
-  {questions.map((_, index) => (
-    <div key={index} className="flex items-center">
-      <div
-        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-          showCompletion
-            ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-            : index === currentQuestion
-            ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-            : index < currentQuestion
-            ? 'bg-cyan-600/80 text-white'
-            : 'bg-white/10 text-gray-500 border border-white/20'
-        }`}
-      >
-        {showCompletion ? (
-          <img src={checkmark} alt="Completed" className="w-4 h-4" />
-        ) : index < currentQuestion ? (
-          <img src={checkmark} alt="Completed" className="w-4 h-4" />
-        ) : (
-          index + 1
-        )}
-      </div>
-      {index < questions.length - 1 && (
-        <div
-          className={`w-8 h-0.5 mx-1 transition-all duration-500 ${
-            showCompletion
-              ? 'bg-cyan-500'
-              : index < currentQuestion
-              ? 'bg-cyan-500'
-              : 'bg-white/10'
-          }`}
-        ></div>
-      )}
-    </div>
-  ))}
-</div>
+
+                <div className="flex justify-center items-center gap-3 mb-10">
+                  {questions.map((_, index) => (
+                    <div key={index} className="flex items-center">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${showCompletion
+                            ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
+                            : index === currentQuestion
+                              ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
+                              : index < currentQuestion
+                                ? 'bg-cyan-600/80 text-white'
+                                : 'bg-white/10 text-gray-500 border border-white/20'
+                          }`}
+                      >
+                        {showCompletion ? (
+                          <img src={checkmark} alt="Completed" className="w-4 h-4" />
+                        ) : index < currentQuestion ? (
+                          <img src={checkmark} alt="Completed" className="w-4 h-4" />
+                        ) : (
+                          index + 1
+                        )}
+                      </div>
+                      {index < questions.length - 1 && (
+                        <div
+                          className={`w-8 h-0.5 mx-1 transition-all duration-500 ${showCompletion
+                              ? 'bg-cyan-500'
+                              : index < currentQuestion
+                                ? 'bg-cyan-500'
+                                : 'bg-white/10'
+                            }`}
+                        ></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
 
 
                 {/* Previous Questions Summary */}
@@ -243,7 +241,7 @@ const HeroSection = () => {
                     </div>
                   ))}
                 </div>
-                     {/* Success Animation */}
+                {/* Success Animation */}
                 <div className="text-center mb-8">
                   <div className="relative inline-block mb-6">
                     <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-green-500/40 animate-bounce">
@@ -298,13 +296,12 @@ const HeroSection = () => {
                 <div className="flex justify-center items-center gap-3 mb-10">
                   {questions.map((_, index) => (
                     <div key={index} className="flex items-center">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                        index === currentQuestion 
-                          ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50' 
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
+                          ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
                           : index < currentQuestion
-                          ? 'bg-cyan-600/80 text-white'
-                          : 'bg-white/10 text-gray-500 border border-white/20'
-                      }`}>
+                            ? 'bg-cyan-600/80 text-white'
+                            : 'bg-white/10 text-gray-500 border border-white/20'
+                        }`}>
                         {index < currentQuestion ? (
                           <img src={checkmark} alt="Completed" className="w-4 h-4" />
                         ) : (
@@ -312,9 +309,8 @@ const HeroSection = () => {
                         )}
                       </div>
                       {index < questions.length - 1 && (
-                        <div className={`w-8 h-0.5 mx-1 transition-all duration-500 ${
-                          index < currentQuestion ? 'bg-cyan-500' : 'bg-white/10'
-                        }`}></div>
+                        <div className={`w-8 h-0.5 mx-1 transition-all duration-500 ${index < currentQuestion ? 'bg-cyan-500' : 'bg-white/10'
+                          }`}></div>
                       )}
                     </div>
                   ))}
@@ -428,8 +424,8 @@ const HeroSection = () => {
             <div className="max-w-2xl mx-auto mb-8">
               {/* Search-style Input */}
               <div className="relative">
-                          <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
-                          <div className="absolute inset-0 rounded-[25.875px] bg-[#02324F] blur-lg "></div>
+                <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
+                <div className="absolute inset-0 rounded-[25.875px] bg-[#02324F] blur-lg "></div>
                 <div className="relative rounded-3xl px-[2px] p-[1px] bg-gradient-to-b from-white/80 to-white/20">
                   <input
                     type="text"
@@ -447,7 +443,7 @@ const HeroSection = () => {
                     onClick={handleDoMagic}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 border-1 border-white transition-colors duration-300 group z-10"
                   >
-                    <Image  src={Mic} alt="Microphone" className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
+                    <Image src={Mic} alt="Microphone" className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
                   </button>
                 </div>
               </div>
@@ -457,8 +453,9 @@ const HeroSection = () => {
               <div className="space-y-6">
                 {/* Main Idea Input */}
                 <div className="relative">
-                  <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse border-bottom: none;"></div>
-                  <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-white/20">
+                  <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse"></div>
+<div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-transparent">
+
                     <div className="relative">
                       <Image src={fill} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
                       <textarea
@@ -469,13 +466,27 @@ const HeroSection = () => {
                         rows={4}
                         className="w-full rounded-2xl border-none bg-[#001824] pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
                       />
-                      <button
-                        onClick={handleDoMagic}
-                        className="absolute right-3 bottom-3 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 z-10 flex items-center gap-1"
-                      >
-                        <span>✨</span>
-                        <span>Do the magic</span>
-                      </button>
+                      <div>
+                      </div>
+                      <div className="absolute right-3 bottom-4 flex items-center gap-x-2">
+                        <button
+                          onClick={handleDoMagic}
+                          className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1 border border-white transition-colors duration-300 group"
+                        >
+                          <Image
+                            src={Mic}
+                            alt="Microphone"
+                            className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300"
+                          />
+                        </button>
+                        <button
+                          onClick={handleDoMagic}
+                          className="bg-[#00ABEB] text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center gap-1"
+                        >
+                          <Image src={fill} alt="star" className="w-4 h-4" />
+                          <span>Do the magic</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -506,42 +517,42 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-    <input
-      type="text"
-      name="Company"
-      value={formData.company}
-      onChange={handleInputChange}
-      placeholder="Company"
-      className="w-full rounded-2xl border-none bg-[#001824] px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
-    />
-  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
+                    <input
+                      type="text"
+                      name="Company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Company"
+                      className="w-full rounded-2xl border-none bg-[#001824] px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
+                    />
+                  </div>
 
-  {/* Mirror the outer wrapper styling */}
-  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-    <div className="rounded-2xl bg-[#001824]">
-      <div className="flex items-center space-x-3 px-4 py-3">
-        <input
-          type="checkbox"
-          name="needIn30Days"
-          id="needIn30Days"
-          checked={formData.needIn30Days}
-          onChange={handleInputChange}
-          className="w-5 h-5 rounded  bg-[#001824]  appearance-none"
-        />
-        <label
-          htmlFor="needIn30Days"
-          className="text-white text-sm cursor-pointer"
-        >
-          Need in 30 days?
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
+                  {/* Mirror the outer wrapper styling */}
+                  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
+                    <div className="rounded-2xl bg-[#001824]">
+                      <div className="flex items-center space-x-3 px-4 py-3">
+                        <input
+                          type="checkbox"
+                          name="needIn30Days"
+                          id="needIn30Days"
+                          checked={formData.needIn30Days}
+                          onChange={handleInputChange}
+                          className="w-5 h-5 rounded  bg-[#001824]  appearance-none"
+                        />
+                        <label
+                          htmlFor="needIn30Days"
+                          className="text-white text-sm cursor-pointer"
+                        >
+                          Need in 30 days?
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-              
+
                 <div className="flex justify-center">
                   <button
                     onClick={handleSubmit}
@@ -574,7 +585,7 @@ const HeroSection = () => {
                 </span>
                 <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center ml-1 group-hover:translate-x-0.5 transition-transform duration-300">
                   <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <Image  src={Icon} alt="icon" className="w-3 h-3" />
+                    <Image src={Icon} alt="icon" className="w-3 h-3" />
                   </div>
                 </div>
               </button>
