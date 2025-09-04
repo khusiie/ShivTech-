@@ -69,7 +69,7 @@ const FAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto">
      
          <h2 
-            className="text-3xl md:text-6xl font-bold leading-tight text-center mb-12"
+            className="text-3xl md:text-6xl font-bold leading-tight text-center mb-4 md:mb-12"
             style={{
               background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
               backgroundClip: 'text',
