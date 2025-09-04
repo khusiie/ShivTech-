@@ -148,19 +148,29 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 pt-25 pb-20">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
-            From Idea to Impact
-            <br />
-            in 60 Days
-          </h1>
+       {/* Main Heading - Hidden on desktop (lg and above) */}
+<h1 className="lg:hidden text-3xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+  From Idea to Impact in 60 Days
+</h1>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed">
-            Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your<br />
-            MVP—Fixed Price. AI-First. Hand-In-Hand.
-          </p>
+{/* Subtitle - Hidden on desktop (lg and above) */}
+<p className="lg:hidden text-sm md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed text-center">
+  Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your
+  MVP—Fixed Price. AI-First. Hand-In-Hand.
+</p>
 
+          <div className="hidden md:block">
+  <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+    From Idea to Impact
+    <br />
+    in 60 Days
+  </h1>
+  {/* Subtitle */}
+  <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed">
+    Tell Us Your Idea In Your Own Words. We'll Design, Build, And Launch Your<br />
+    MVP—Fixed Price. AI-First. Hand-In-Hand.
+  </p>
+</div>
           {showCompletion ? (
             /* Completion UI - "All set!" screen */
             <div className="max-w-2xl mx-auto mb-8">
