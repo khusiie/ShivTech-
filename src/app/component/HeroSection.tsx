@@ -4,13 +4,13 @@ import { useState } from 'react';
 import Star from "../../../public/assets/Hero/star.svg";
 import Image from 'next/image';
 import bg from '../../../public/assets/Hero/bg.svg';
-import icon from '../../../public/assets/navbar/navbuttonicon.svg';
+import Icon from "../../../public/assets/navbar/navbuttonicon.svg";
 import email  from '../../../public/assets/HeroSection/email.svg';
 import fill from '../../../public/assets/HeroSection/fill.svg';
 import location from '../../../public/assets/HeroSection/location.svg';
 import solor from '../../../public/assets/HeroSection/solor.svg';
+import  Mic from  '../../../public/assets/HeroSection/mic.svg';
 
-const mic = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 1c-1.66 0-3 1.34-3 3v8c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3zm0 2c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1s-1-.45-1-1V4c0-.55.45-1 1-1zm-1 14.93c-3.94-.49-7-3.85-7-7.93h2c0 2.76 2.24 5 5 5s5-2.24 5-5h2c0 4.08-3.06 7.44-7 7.93V19h3v2H9v-2h3v-1.07z'/%3E%3C/svg%3E";
 
 const checkmark = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L5.53 12.7a.996.996 0 10-1.41 1.41L9 19l11-11a.996.996 0 10-1.41-1.41L9 16.17z'/%3E%3C/svg%3E";
 
@@ -265,7 +265,7 @@ const HeroSection = () => {
                     </span>
                     <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center ml-1">
                       <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                        <Image src={icon} alt="icon" className="w-3 h-3" />
+                        <Image src={Icon} alt="icon" className="w-5 h-5" />
                       </div>
                     </div>
                   </button>
@@ -396,14 +396,14 @@ const HeroSection = () => {
                     {!isInputExpanded && (
                       <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
                         <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 shadow-lg">
-                          <img src={mic} alt="Voice" className="w-4 h-4" />
+                          <Image src={Mic} alt="Voice" className="w-6 h-6" />
                         </button>
                         <button
                           onClick={handleAnswerSubmit}
                           disabled={!currentAnswer.trim()}
                           className="bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 shadow-lg disabled:hover:scale-100"
                         >
-                          <Image src={icon} alt="Send" className="w-4 h-4" />
+                          <Image src={Icon} alt="Send" className="w-4 h-4" />
                         </button>
                       </div>
                     )}
@@ -418,7 +418,8 @@ const HeroSection = () => {
             <div className="max-w-2xl mx-auto mb-8">
               {/* Search-style Input */}
               <div className="relative">
-                <div className="absolute inset-0 rounded-3xl bg-cyan-400/30 blur-xl animate-pulse"></div>
+                          <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
+                          <div className="absolute inset-0 rounded-[25.875px] bg-[#0003ab] blur-lg "></div>
                 <div className="relative rounded-3xl px-[2px] p-[1px] bg-gradient-to-b from-white/80 to-white/20">
                   <input
                     type="text"
@@ -430,13 +431,13 @@ const HeroSection = () => {
                     className="w-full rounded-3xl border-none bg-[#001824] pl-12 pr-16 py-4 text-lg text-white placeholder-gray-400 focus:outline-none relative z-10"
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center z-10">
-                    <Image src={Star} alt="Star icon" className="w-5 h-5" />
+                    <Image src={fill} alt="Star icon" className="w-6 h-6" />
                   </div>
                   <button
                     onClick={handleDoMagic}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 transition-colors duration-300 group z-10"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 border-1 border-white transition-colors duration-300 group z-10"
                   >
-                    <img src={mic} alt="Microphone" className="w-4 h-4 transform group-hover:scale-110 transition-transform duration-300" />
+                    <Image  src={Mic} alt="Microphone" className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
                   </button>
                 </div>
               </div>
@@ -543,7 +544,7 @@ const HeroSection = () => {
                     {!isSubmitting && (
                       <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center ml-1">
                         <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                          <Image src={icon} alt="icon" className="w-3 h-3" />
+                          <Image src={Icon} alt="icon" className="w-3 h-3" />
                         </div>
                       </div>
                     )}
@@ -563,7 +564,7 @@ const HeroSection = () => {
                 </span>
                 <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center ml-1 group-hover:translate-x-0.5 transition-transform duration-300">
                   <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <img src={icon} alt="icon" className="w-3 h-3" />
+                    <Image  src={Icon} alt="icon" className="w-3 h-3" />
                   </div>
                 </div>
               </button>
