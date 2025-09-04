@@ -189,7 +189,7 @@ export default function Technologies(): ReactElement {
   };
 
   return (
-    <section className="w-full bg-black text-white py-2 md:py-10 px-2 flex flex-col items-center overflow-hidden">
+    <section className="w-full bg-black text-white py-6 md:py-10 px-2 flex flex-col items-center overflow-hidden">
         <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
          Our Stack
         </span>

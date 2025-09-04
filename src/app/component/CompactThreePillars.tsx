@@ -38,7 +38,7 @@ const CompactThreePillars = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-4 sm:py-16 lg:py-20 bg-black relative font-sora">
+    <section ref={sectionRef} className="py-6 sm:py-16 lg:py-20 bg-black relative font-sora">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -50,8 +50,8 @@ const CompactThreePillars = () => {
             <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
           </div>
           
-          <h2 
-            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4 sm:px-0"
+   <h2 
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-2 md:px-4 sm:px-0 "
             style={{
               background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
               backgroundClip: 'text',
@@ -61,6 +61,7 @@ const CompactThreePillars = () => {
           >
             Our 3 Core Pillars
           </h2>
+
         </div>
 
         {/* Pillars */}

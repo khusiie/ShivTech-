@@ -143,3 +143,30 @@
 }
 
 
+.gradient-text {
+  /* Fallback: Ensure text remains visible in unsupported browsers */
+  color: #3dcaff;
+
+  /* Apply the gradient as the background first */
+  background: linear-gradient(79deg, #fff -4.08%, #3dcaff 82.24%);
+
+  /* Clip the background to the text content */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Make the text fill transparent so the background shows through */
+  -webkit-text-fill-color: transparent;
+  /* Optional fallback: text-fill-color */
+  text-fill-color: transparent;
+
+  /* Fix clipping issues in some browsers like Safari */
+  display: inline-block;
+}
+
+/* Apply gradient only if supported */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) and
+          ((-webkit-text-fill-color: transparent) or (text-fill-color: transparent)) {
+  .gradient-text {
+    color: transparent;
+  }
+}

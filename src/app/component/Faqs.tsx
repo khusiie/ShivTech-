@@ -67,18 +67,12 @@ const FAQ: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white pb-0  px-8 md:p-8 pt-2">
       <div className="max-w-4xl mx-auto">
-     
-         <h2 
-            className="text-3xl md:text-6xl font-bold leading-tight text-center mb-4 md:mb-12"
-            style={{
-              background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            FAQ
-          </h2>
+     <h2 
+  className="text-4xl md:text-6xl text-center mb-4 md:mb-12 sm:text-4xl lg:text-6xl font-bold leading-tight gradient‑text"
+>
+  FAQ
+</h2>
+
         
         <div className="space-y-4">
           {faqData.map((item: FAQItem) => (

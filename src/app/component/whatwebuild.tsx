@@ -33,19 +33,13 @@ const cardData = [
 
 const WhatWeBuildSection = () => {
   return (
-    <section className="bg-black py-4 sm:py-16 lg:py-20">
+    <section className="bg-black py-6 sm:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-            style={{
-              background: 'linear-gradient(180deg, #00BFFF 0%, #FFFFFF 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              fontFamily: 'sora, sans-serif'
-            }}
+            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-2 md:px-4 sm:px-0 gradient-text"
+
           >
             What We Build
           </h2>

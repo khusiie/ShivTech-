@@ -28,7 +28,7 @@ export default function DeliveryPromise() {
   ];
 
   return (
-    <section className="bg-black text-white  py-4 md:py-16 px-6 md:px-12 font-sora">
+    <section className="bg-black text-white  py-6 md:py-6 px-6 md:px-12 font-sora">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function DeliveryPromise() {
       <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Promises
         </span>
-<h2 className="text-5xl pt-4 md:text-7xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
+<h2 className="text-4xl pt-4 md:text-7xl font-bold bg-[linear-gradient(180deg,#FFF_30%,#A5C7D4_100%)] bg-clip-text text-transparent">
   Delivery Promise
 </h2>
 

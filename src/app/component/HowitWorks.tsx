@@ -149,7 +149,7 @@ const HowitWorks = () => {
     return (
         <section
             ref={sectionRef}
-            className=" py-4 md:py-20 bg-black relative overflow-hidden font-sora"
+            className=" py-6 md:py-20 bg-black relative overflow-hidden font-sora"
         >
             <div className="relative z-10 container mx-auto px-4">
                 {/* Section Header */}
@@ -170,13 +170,7 @@ const HowitWorks = () => {
         <ChevronRight className="w-3 h-3 text-gray-400 group-hover:text-gray-300 transition-colors duration-200" />
     </div>
      
-    <h2 className="text-3xl sm:text-3xl md:text-6xl lg:text-6xl xl:text-6xl font-bold font-sora leading-tight"
-        style={{
-            background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-        }}>
+    <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight  md:px-4 sm:px-0 " >
         How ShivAI Works
     </h2>
 </div>

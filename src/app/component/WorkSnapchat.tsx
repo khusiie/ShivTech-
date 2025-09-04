@@ -27,7 +27,7 @@ export default function WorkSnapshots() {
   ];
 
   return (
-    <section className="bg-black text-white   py-4 md:py-16 px-6 md:px-12 text-center">
+    <section className="bg-black text-white py-6 md:py-16 px-6 md:px-12 text-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function WorkSnapshots() {
            <span className="px-3 py-1 rounded-full font-lg  border border-gray-700 text-sm text-gray-300 mb-4">
           Proof
         </span>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight  md:px-4 sm:px-0 ">
          Work Snapshots
         </h2>
         <p className="mt-3 text-gray-400">

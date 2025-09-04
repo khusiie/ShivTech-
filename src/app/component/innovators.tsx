@@ -185,7 +185,7 @@ export default function Testimonials(): React.ReactElement {
         }
       `}</style>
 
-      <section className="w-full bg-black text-white   py-4  md:py-20 px-6 md:px-12 lg:px-20 text-center overflow-hidden">
+      <section className="w-full bg-black text-white   py-6  md:py-12  md:px-12 lg:px-20 text-center overflow-hidden">
         {/* Top Logos Arc */}
         <div className="relative w-full flex justify-center mb-12">
           <div className="relative flex gap-12 flex-wrap justify-center">
@@ -201,7 +201,7 @@ export default function Testimonials(): React.ReactElement {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-6xl font-bold mb-12">
+        <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight md:pb-8 pb-4  px-1 md:px-4 sm:px-0 gradient-text">
           Trusted by innovators
         </h2>
 
