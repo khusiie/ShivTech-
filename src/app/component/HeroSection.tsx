@@ -220,54 +220,54 @@ const HeroSection = () => {
 
 
                 {/* Previous Questions Summary */}
-<div className="mb-8 space-y-6">
-  {questions.map((question, index) => (
-    <div key={index} className="space-y-4">
-      {/* Question - Left side */}
-      <div className="flex justify-start">
-        <div className="flex items-start gap-3 max-w-2xl">
-          <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm font-bold">
-            Q
-          </div>
-          <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 border border-cyan-400/30">
-            <p className="text-cyan-100 font-medium">{question}</p>
-          </div>
-        </div>
-      </div>
+                <div className="mb-8 space-y-6">
+                  {questions.map((question, index) => (
+                    <div key={index} className="space-y-4">
+                      {/* Question - Left side */}
+                      <div className="flex justify-start">
+                        <div className="flex items-start gap-3 max-w-2xl">
+                          <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm font-bold">
+                            Q
+                          </div>
+                          <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 border border-cyan-400/30">
+                            <p className="text-cyan-100 font-medium">{question}</p>
+                          </div>
+                        </div>
+                      </div>
 
-      {/* Answer - Right side (if exists) */}
-      {answers[index] && (
-        <div className="flex justify-end">
-          <div className="flex items-start gap-3 max-w-2xl">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
-              <p className="text-white">{answers[index]}</p>
-            </div>
-            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white text-sm">👤</span>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  ))}
-</div>
+                      {/* Answer - Right side (if exists) */}
+                      {answers[index] && (
+                        <div className="flex justify-end">
+                          <div className="flex items-start gap-3 max-w-2xl">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
+                              <p className="text-white">{answers[index]}</p>
+                            </div>
+                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white text-sm">👤</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
                 {/* Success Animation */}
                 <div className="text-center mb-8">
-                   <div className="text-center mb-8">
-                  <p className="text-gray-400 text-sm">
-                    Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
-                  </p>
-                </div>
+                  <div className="text-center mb-8">
+                    <p className="text-gray-400 text-sm">
+                      Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
+                    </p>
+                  </div>
                   <div className="relative inline-block mb-6">
-                    
+
                     <div className="w-24 h-24 bg-gradient-to-br  from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40  flex items-center justify-center mx-auto shadow-2xl ">
                       <img src={checkmark} alt="Success" className="w-12 h-12" />
                     </div>
                     <div className="absolute inset-0  rounded-full blur-xl animate-pulse"></div>
                   </div>
-                  
-                {/* Progress Message */}
-               
+
+                  {/* Progress Message */}
+
                   <h2 className="text-4xl font-bold text-white mb-4">All set!</h2>
                   <p className="text-white/40 text-lg mb-8">
                     Check Your Email For A Confirmation And Next Steps.
@@ -329,58 +329,58 @@ const HeroSection = () => {
                   ))}
                 </div>
 
-               
-              {currentQuestion > 0 && (
-  <div className="mb-6 max-h-64 overflow-y-auto space-y-4 pr-2">
-    {Array.from({ length: currentQuestion }).map((_, index) => (
-      <div key={index} className="space-y-3">
-        {/* Previous Question - Left side */}
-        <div className="flex justify-start">
-          <div className="flex items-start gap-3 max-w-xl">
-            <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
-              Q
-            </div>
-            <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
-              <p className="text-cyan-200 text-sm font-medium">{questions[index]}</p>
-            </div>
-          </div>
-        </div>
 
-        {/* Previous Answer - Right side */}
-        <div className="flex justify-end">
-          <div className="flex items-start gap-3 max-w-xl">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-3 border border-white/20">
-              <p className="text-white text-sm">{answers[index]}</p>
-            </div>
-            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white text-xs">👤</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-)}
+                {currentQuestion > 0 && (
+                  <div className="mb-6 max-h-64 overflow-y-auto space-y-4 pr-2">
+                    {Array.from({ length: currentQuestion }).map((_, index) => (
+                      <div key={index} className="space-y-3">
+                        {/* Previous Question - Left side */}
+                        <div className="flex justify-start">
+                          <div className="flex items-start gap-3 max-w-xl">
+                            <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                              Q
+                            </div>
+                            <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
+                              <p className="text-cyan-200 text-sm font-medium">{questions[index]}</p>
+                            </div>
+                          </div>
+                        </div>
 
-{/* Current Question - Left side (same style as previous) */}
-<div className="mb-8">
-  <div className="flex justify-start">
-    <div className="flex items-start gap-3 max-w-2xl">
-      <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
-        <span className="text-sm font-bold">Q</span>
-      </div>
-      <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
-        <p className="text-white text-lg leading-relaxed font-medium">
-          {questions[currentQuestion]}
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+                        {/* Previous Answer - Right side */}
+                        <div className="flex justify-end">
+                          <div className="flex items-start gap-3 max-w-xl">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-3 border border-white/20">
+                              <p className="text-white text-sm">{answers[index]}</p>
+                            </div>
+                            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white text-xs">👤</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Current Question - Left side (same style as previous) */}
+                <div className="mb-8">
+                  <div className="flex justify-start">
+                    <div className="flex items-start gap-3 max-w-2xl">
+                      <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <span className="text-sm font-bold">Q</span>
+                      </div>
+                      <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
+                        <p className="text-white text-lg leading-relaxed font-medium">
+                          {questions[currentQuestion]}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Answer Input - Expandable */}
                 <div className="relative mb-6">
-                <div className="rounded-2xl p-[1px] bg-gradient-to-t from-cyan-400/50 to-blue-500/30">
+                  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-cyan-400/50 to-blue-500/30">
                     {isInputExpanded ? (
                       <div className="relative">
                         <Image src={Star} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
@@ -395,8 +395,8 @@ const HeroSection = () => {
                           className="w-full rounded-2xl border-none bg-black/80 pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
                         />
 
-                
-                       
+
+
                         <button
                           onClick={handleAnswerSubmit}
                           disabled={!currentAnswer.trim()}
@@ -404,7 +404,7 @@ const HeroSection = () => {
 
                         >
                           <Image src={submit} alt="Send" className="w-6 h-6" />
-                        
+
                         </button>
                       </div>
                     ) : (
@@ -423,7 +423,7 @@ const HeroSection = () => {
                         <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 shadow-lg">
                           <Image src={Mic} alt="Voice" className="w-6 h-6" />
                         </button>
-                       
+
                       </div>
                     )}
                   </div>
@@ -532,24 +532,24 @@ const HeroSection = () => {
                   </div>
                   <div className="relative">
                     <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-                      
-                       <div className="flex items-center gap-2 rounded-2xl bg-[#023D5A] px-3">
-                       <Image
-                        src={v1}
-                        alt="My Image"
-                        width={20}
-                        height={20}
-                        className="rounded-xl object-contain"
-                      />
-                     
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Name"
-                        className="w-full rounded-2xl border-none bg-[#023D5A] py-3 text-[#FFFFFF] font-xs placeholder-gray-400 focus:outline-none"
-                      />
+
+                      <div className="flex items-center gap-2 rounded-2xl bg-[#023D5A] px-3">
+                        <Image
+                          src={v1}
+                          alt="My Image"
+                          width={20}
+                          height={20}
+                          className="rounded-xl object-contain"
+                        />
+
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder="Name"
+                          className="w-full rounded-2xl border-none bg-[#023D5A] py-3 text-[#FFFFFF] font-xs placeholder-gray-400 focus:outline-none"
+                        />
                       </div>
                     </div>
                   </div>
@@ -578,27 +578,27 @@ const HeroSection = () => {
                   {/* Mirror the outer wrapper styling */}
                   <div className="rounded-2xl p-[1px] bg-[#023D5A]">
                     <div className="rounded-2xl  ">
-                     <div className="flex items-center justify-between px-4 py-3">
-  <label
-    htmlFor="needIn30Days"
-    className="text-white text-sm cursor-pointer"
-  >
-    Need in 30 days?
-  </label>
-<input
-  type="checkbox"
-  name="needIn30Days"
-  id="needIn30Days"
-  checked={formData.needIn30Days}
-  onChange={handleInputChange}
-  className="relative w-10 h-5 bg-gray-700 rounded-full appearance-none cursor-pointer
+                      <div className="flex items-center justify-between px-4 py-3">
+                        <label
+                          htmlFor="needIn30Days"
+                          className="text-white text-sm cursor-pointer"
+                        >
+                          Need in 30 days?
+                        </label>
+                        <input
+                          type="checkbox"
+                          name="needIn30Days"
+                          id="needIn30Days"
+                          checked={formData.needIn30Days}
+                          onChange={handleInputChange}
+                          className="relative w-10 h-5 bg-gray-700 rounded-full appearance-none cursor-pointer
              checked:bg-blue-600 transition-colors duration-300
              before:content-[''] before:absolute before:top-0.5 before:left-0.5
              before:w-4 before:h-4 before:bg-white before:rounded-full before:transition-transform
              before:duration-300 checked:before:translate-x-5"
-/>
+                        />
 
-</div>
+                      </div>
 
                     </div>
                   </div>
