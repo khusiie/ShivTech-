@@ -5,15 +5,13 @@ import Star from "../../../public/assets/Hero/star.svg";
 import Image from 'next/image';
 import bg from '../../../public/assets/Hero/bg.svg';
 import Icon from "../../../public/assets/navbar/navbuttonicon.svg";
-import email from '../../../public/assets/HeroSection/email.svg';
+
 import fill from '../../../public/assets/HeroSection/fill.svg';
-import location from '../../../public/assets/HeroSection/location.svg';
-import solor from '../../../public/assets/HeroSection/solor.svg';
 import Mic from '../../../public/assets/HeroSection/mic.svg';
 import v1 from "../../../public/assets/HeroSection/v1.svg";
 import v2 from "../../../public/assets/HeroSection/v2.svg";
 import v3 from "../../../public/assets/HeroSection/v3.svg";
-
+import submit from "../../../public/assets/HeroSection/sumit.svg";
 
 const checkmark = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L5.53 12.7a.996.996 0 10-1.41 1.41L9 19l11-11a.996.996 0 10-1.41-1.41L9 16.17z'/%3E%3C/svg%3E";
 
@@ -189,7 +187,7 @@ const HeroSection = () => {
                   {questions.map((_, index) => (
                     <div key={index} className="flex items-center">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${showCompletion
+                        className={`w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold transition-all duration-300 ${showCompletion
                           ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
                           : index === currentQuestion
                             ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
@@ -246,24 +244,27 @@ const HeroSection = () => {
                 </div>
                 {/* Success Animation */}
                 <div className="text-center mb-8">
-                  <div className="relative inline-block mb-6">
-                    <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-green-500/40 animate-bounce">
-                      <img src={checkmark} alt="Success" className="w-12 h-12" />
-                    </div>
-                    <div className="absolute inset-0 bg-green-400/30 rounded-full blur-xl animate-pulse"></div>
-                  </div>
-                  <h2 className="text-4xl font-bold text-white mb-4">All set!</h2>
-                  <p className="text-gray-300 text-lg mb-8">
-                    Check Your Email For A Confirmation And Next Steps.
-                  </p>
-                </div>
-
-                {/* Progress Message */}
-                <div className="text-center mb-8">
+                   <div className="text-center mb-8">
                   <p className="text-gray-400 text-sm">
                     Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
                   </p>
                 </div>
+                  <div className="relative inline-block mb-6">
+                    
+                    <div className="w-24 h-24 bg-gradient-to-br  from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40  flex items-center justify-center mx-auto shadow-2xl ">
+                      <img src={checkmark} alt="Success" className="w-12 h-12" />
+                    </div>
+                    <div className="absolute inset-0  rounded-full blur-xl animate-pulse"></div>
+                  </div>
+                  
+                {/* Progress Message */}
+               
+                  <h2 className="text-4xl font-bold text-white mb-4">All set!</h2>
+                  <p className="text-white/40 text-lg mb-8">
+                    Check Your Email For A Confirmation And Next Steps.
+                  </p>
+                </div>
+
 
                 {/* Final CTA Button */}
                 <div className="flex justify-center">
@@ -274,9 +275,9 @@ const HeroSection = () => {
                     <span className="text-sm font-semibold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
                       Book a 15-min consult
                     </span>
-                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center ml-1">
+                    <div className="w-6 h-6 bg-white/20  rounded-full flex items-center justify-center ml-1">
                       <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                        <Image src={Icon} alt="icon" className="w-5 h-5" />
+                        <Image src={Icon} alt="icon" className="w-3 h-3" />
                       </div>
                     </div>
                   </button>
@@ -299,7 +300,7 @@ const HeroSection = () => {
                 <div className="flex justify-center items-center gap-3 mb-10">
                   {questions.map((_, index) => (
                     <div key={index} className="flex items-center">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
+                      <div className={`w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
                         ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
                         : index < currentQuestion
                           ? 'bg-cyan-600/80 text-white'
@@ -319,13 +320,13 @@ const HeroSection = () => {
                   ))}
                 </div>
 
-                {/* Previous Questions and Answers - Scrollable */}
+               
                 {currentQuestion > 0 && (
                   <div className="mb-6 max-h-64 overflow-y-auto space-y-3 pr-2">
                     {Array.from({ length: currentQuestion }).map((_, index) => (
                       <div key={index} className="bg-cyan-500/10 backdrop-blur-sm rounded-2xl p-4 border border-cyan-400/20">
                         <div className="flex items-start gap-3 mb-3">
-                          <div className="bg-cyan-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
+                          <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
                             Q
                           </div>
                           <p className="text-cyan-200 text-sm font-medium flex-1">{questions[index]}</p>
@@ -346,7 +347,7 @@ const HeroSection = () => {
                   <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl p-1 mb-6">
                     <div className="bg-cyan-500/30 rounded-2xl p-6 border border-cyan-400/20">
                       <div className="flex items-start gap-4">
-                        <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
                           <span className="text-sm font-bold">Q</span>
                         </div>
                         <div className="flex-1">
@@ -368,7 +369,7 @@ const HeroSection = () => {
 
                 {/* Answer Input - Expandable */}
                 <div className="relative mb-6">
-                  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-cyan-400/50 to-blue-500/30">
+                <div className="rounded-2xl p-[1px] bg-gradient-to-t from-cyan-400/50 to-blue-500/30">
                     {isInputExpanded ? (
                       <div className="relative">
                         <Image src={Star} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
@@ -382,13 +383,17 @@ const HeroSection = () => {
                           rows={4}
                           className="w-full rounded-2xl border-none bg-black/80 pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
                         />
+
+                
+                       
                         <button
                           onClick={handleAnswerSubmit}
                           disabled={!currentAnswer.trim()}
-                          className="absolute right-3 bottom-3 bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 z-10 flex items-center gap-1"
+                          className="absolute right-3 bottom-3 bg-blue-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium px-2 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 z-10 flex items-center gap-1"
+
                         >
-                          <span>✨</span>
-                          <span>Submit</span>
+                          <Image src={submit} alt="Send" className="w-6 h-6" />
+                        
                         </button>
                       </div>
                     ) : (
@@ -407,13 +412,7 @@ const HeroSection = () => {
                         <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 shadow-lg">
                           <Image src={Mic} alt="Voice" className="w-6 h-6" />
                         </button>
-                        <button
-                          onClick={handleAnswerSubmit}
-                          disabled={!currentAnswer.trim()}
-                          className="bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-full p-2.5 transition-all duration-300 hover:scale-110 shadow-lg disabled:hover:scale-100"
-                        >
-                          <Image src={Icon} alt="Send" className="w-4 h-4" />
-                        </button>
+                       
                       </div>
                     )}
                   </div>
