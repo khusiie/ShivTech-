@@ -10,6 +10,9 @@ import fill from '../../../public/assets/HeroSection/fill.svg';
 import location from '../../../public/assets/HeroSection/location.svg';
 import solor from '../../../public/assets/HeroSection/solor.svg';
 import Mic from '../../../public/assets/HeroSection/mic.svg';
+import v1 from "../../../public/assets/HeroSection/v1.svg";
+import v2 from "../../../public/assets/HeroSection/v2.svg";
+import v3 from "../../../public/assets/HeroSection/v3.svg";
 
 
 const checkmark = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L5.53 12.7a.996.996 0 10-1.41 1.41L9 19l11-11a.996.996 0 10-1.41-1.41L9 16.17z'/%3E%3C/svg%3E";
@@ -187,12 +190,12 @@ const HeroSection = () => {
                     <div key={index} className="flex items-center">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${showCompletion
+                          ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
+                          : index === currentQuestion
                             ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-                            : index === currentQuestion
-                              ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-                              : index < currentQuestion
-                                ? 'bg-cyan-600/80 text-white'
-                                : 'bg-white/10 text-gray-500 border border-white/20'
+                            : index < currentQuestion
+                              ? 'bg-cyan-600/80 text-white'
+                              : 'bg-white/10 text-gray-500 border border-white/20'
                           }`}
                       >
                         {showCompletion ? (
@@ -206,10 +209,10 @@ const HeroSection = () => {
                       {index < questions.length - 1 && (
                         <div
                           className={`w-8 h-0.5 mx-1 transition-all duration-500 ${showCompletion
+                            ? 'bg-cyan-500'
+                            : index < currentQuestion
                               ? 'bg-cyan-500'
-                              : index < currentQuestion
-                                ? 'bg-cyan-500'
-                                : 'bg-white/10'
+                              : 'bg-white/10'
                             }`}
                         ></div>
                       )}
@@ -297,10 +300,10 @@ const HeroSection = () => {
                   {questions.map((_, index) => (
                     <div key={index} className="flex items-center">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
-                          ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-                          : index < currentQuestion
-                            ? 'bg-cyan-600/80 text-white'
-                            : 'bg-white/10 text-gray-500 border border-white/20'
+                        ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
+                        : index < currentQuestion
+                          ? 'bg-cyan-600/80 text-white'
+                          : 'bg-white/10 text-gray-500 border border-white/20'
                         }`}>
                         {index < currentQuestion ? (
                           <img src={checkmark} alt="Completed" className="w-4 h-4" />
@@ -427,6 +430,8 @@ const HeroSection = () => {
                 <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
                 <div className="absolute inset-0 rounded-[25.875px] bg-[#02324F] blur-lg "></div>
                 <div className="relative rounded-3xl px-[2px] p-[1px] bg-gradient-to-b from-white/80 to-white/20">
+
+
                   <input
                     type="text"
                     name="idea"
@@ -454,7 +459,7 @@ const HeroSection = () => {
                 {/* Main Idea Input */}
                 <div className="relative">
                   <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse"></div>
-<div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-transparent">
+                  <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-transparent">
 
                     <div className="relative">
                       <Image src={fill} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
@@ -494,60 +499,97 @@ const HeroSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="relative">
                     <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Enter Email"
-                        className="w-full rounded-2xl border-none bg-[#001824]  px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
-                      />
+
+                      <div className="flex items-center gap-2  bg-[#023D5A] px-3 rounded-2xl">
+                        <Image
+                          src={v3}
+                          alt="My Image"
+                          width={20}
+                          height={20}
+                          className=" object-contain"
+                        />
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="Enter Email"
+                          className="w-full bg-transparent  py-3 text-white placeholder-gray-400 focus:outline-none"
+                        />
+                      </div>
+
                     </div>
                   </div>
                   <div className="relative">
                     <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
+                      
+                       <div className="flex items-center gap-2 rounded-2xl bg-[#023D5A] px-3">
+                       <Image
+                        src={v1}
+                        alt="My Image"
+                        width={20}
+                        height={20}
+                        className="rounded-xl object-contain"
+                      />
+                     
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Name"
-                        className="w-full rounded-2xl border-none bg-[#001824]  px-4 py-3 text-[#FFFFFF] placeholder-gray-400 focus:outline-none"
+                        className="w-full rounded-2xl border-none bg-[#023D5A] py-3 text-[#FFFFFF] font-xs placeholder-gray-400 focus:outline-none"
                       />
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-                    <input
-                      type="text"
-                      name="Company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Company"
-                      className="w-full rounded-2xl border-none bg-[#001824] px-4 py-3 text-white placeholder-gray-400 focus:outline-none"
-                    />
-                  </div>
+                    <div className="flex items-center gap-2 rounded-2xl bg-[#023D5A] px-3">
+                      <Image
+                        src={v2}
+                        alt="My Image"
+                        width={20}
+                        height={20}
+                        className="rounded-xl object-contain"
+                      />
 
+                      <input
+                        type="text"
+                        name="Company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        placeholder="Company"
+                        className="w-full rounded-2xl border-none bg-[#023D5A]  py-3 text-white placeholder-gray-400 focus:outline-none"
+                      />
+                    </div>
+                  </div>
                   {/* Mirror the outer wrapper styling */}
-                  <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 to-white/10">
-                    <div className="rounded-2xl bg-[#001824]">
-                      <div className="flex items-center space-x-3 px-4 py-3">
-                        <input
-                          type="checkbox"
-                          name="needIn30Days"
-                          id="needIn30Days"
-                          checked={formData.needIn30Days}
-                          onChange={handleInputChange}
-                          className="w-5 h-5 rounded  bg-[#001824]  appearance-none"
-                        />
-                        <label
-                          htmlFor="needIn30Days"
-                          className="text-white text-sm cursor-pointer"
-                        >
-                          Need in 30 days?
-                        </label>
-                      </div>
+                  <div className="rounded-2xl p-[1px] bg-[#023D5A]">
+                    <div className="rounded-2xl  ">
+                     <div className="flex items-center justify-between px-4 py-3">
+  <label
+    htmlFor="needIn30Days"
+    className="text-white text-sm cursor-pointer"
+  >
+    Need in 30 days?
+  </label>
+<input
+  type="checkbox"
+  name="needIn30Days"
+  id="needIn30Days"
+  checked={formData.needIn30Days}
+  onChange={handleInputChange}
+  className="relative w-10 h-5 bg-gray-700 rounded-full appearance-none cursor-pointer
+             checked:bg-blue-600 transition-colors duration-300
+             before:content-[''] before:absolute before:top-0.5 before:left-0.5
+             before:w-4 before:h-4 before:bg-white before:rounded-full before:transition-transform
+             before:duration-300 checked:before:translate-x-5"
+/>
+
+</div>
+
                     </div>
                   </div>
                 </div>
