@@ -37,9 +37,17 @@ export default function WorkSnapshots() {
            <span className="px-3 py-1 rounded-full font-lg  border border-gray-700 text-sm text-gray-300 mb-4">
           Proof
         </span>
-          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight  md:px-4 sm:px-0 ">
-         Work Snapshots
-        </h2>
+ <h2
+  className="
+    text-4xl sm:text-4xl md:text-5xl lg:text-6xl
+    font-bold leading-tight md:px-4 sm:px-0
+    bg-clip-text text-transparent
+    bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+  "
+>
+  Work Snapshots
+</h2>
+
         <p className="mt-3 text-gray-400">
           Proof In Days, Not Months.
         </p>

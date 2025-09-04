@@ -170,9 +170,17 @@ const HowitWorks = () => {
         <ChevronRight className="w-3 h-3 text-gray-400 group-hover:text-gray-300 transition-colors duration-200" />
     </div>
      
-    <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight  md:px-4 sm:px-0 " >
-        How ShivAI Works
-    </h2>
+   <h2
+  className="
+    text-4xl sm:text-4xl md:text-5xl lg:text-6xl
+    font-bold leading-tight md:px-4 sm:px-0
+    bg-clip-text text-transparent
+    bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+  "
+>
+  How ShivAI Works
+</h2>
+
 </div>
 
 {/* Main Content */}

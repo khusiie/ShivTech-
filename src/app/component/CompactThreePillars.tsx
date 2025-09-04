@@ -50,17 +50,17 @@ const CompactThreePillars = () => {
             <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 group-hover:text-gray-300 transition-colors" />
           </div>
           
-   <h2 
-            className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-2 md:px-4 sm:px-0 "
-            style={{
-              background: 'linear-gradient(180deg, #FFF 30%, #A5C7D4 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            Our 3 Core Pillars
-          </h2>
+   <h2
+  className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-2 md:px-4 sm:px-0"
+  style={{
+    background: `var(--Shiv-Blue, linear-gradient(79deg, #FFF -4.08%, #3DCAFF 82.24%))`,
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  }}
+>
+  Our 3 Core Pillars
+</h2>
 
         </div>
 

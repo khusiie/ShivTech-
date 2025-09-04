@@ -194,9 +194,14 @@ export default function Technologies(): ReactElement {
          Our Stack
         </span>
 
-      <h2 className="text-4xl sm:text-6xl font-bold mb-10 sm:mb-16 text-center">
-        Technologies We Used
-      </h2>
+  <h2 className="
+  text-4xl sm:text-6xl font-bold mb-10 sm:mb-16 text-center
+  bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+  bg-clip-text text-transparent
+">
+  Technologies We Used
+</h2>
+
 
       {isMobile ? (
         <div className="w-full flex flex-col items-center mb-8">

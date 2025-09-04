@@ -67,11 +67,16 @@ const FAQ: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white pb-0  px-8 md:p-8 pt-2">
       <div className="max-w-4xl mx-auto">
-     <h2 
-  className="text-4xl md:text-6xl text-center mb-4 md:mb-12 sm:text-4xl lg:text-6xl font-bold leading-tight gradient‑text"
+<h2
+  className="
+    text-4xl md:text-6xl text-center mb-4 md:mb-12 sm:text-4xl lg:text-6xl font-bold leading-tight
+    bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+    bg-clip-text text-transparent
+  "
 >
   FAQ
 </h2>
+
 
         
         <div className="space-y-4">

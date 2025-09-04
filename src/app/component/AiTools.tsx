@@ -11,9 +11,17 @@ export default function BuildProcess() {
         <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
           Tooling & Outputs
         </span>
-        <h2 className="text-4xl sm:text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-          AI-First Build Process
-        </h2>
+       <h2
+  className="
+    text-4xl sm:text-4xl md:text-6xl font-bold
+    bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+    bg-clip-text text-transparent
+    mb-10 sm:mb-16 text-center
+  "
+>
+  AI-First Build Process
+</h2>
+
       </div>
 
       {/* Flowchart Image */}
