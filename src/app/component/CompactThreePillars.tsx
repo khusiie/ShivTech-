@@ -7,7 +7,6 @@ import star from "../../../public/assets/3pillor/star.svg";
 
 const CompactThreePillars = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const pillars = [
@@ -67,7 +66,7 @@ const CompactThreePillars = () => {
         {/* Pillars */}
         <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
           {pillars.map((pillar, index) => {
-            const isHovered = hoveredIndex === index;
+            const isSecondPillar = index === 1; // Second pillar (index 1)
             
             return (
               <div
@@ -76,12 +75,10 @@ const CompactThreePillars = () => {
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div 
-                  className="group py-4 px-4 sm:py-5 sm:px-6 lg:py-6 lg:px-8 rounded-lg transition-all duration-300 hover:scale-[1.01] cursor-pointer"
-                  style={isHovered ? {
+                  className="py-4 px-4 sm:py-5 sm:px-6 lg:py-6 lg:px-8 rounded-lg"
+                  style={isSecondPillar ? {
                     background: 'linear-gradient(90deg, #01AAFF 0%, #000 62.5%)'
                   } : undefined}
                 >
@@ -89,8 +86,8 @@ const CompactThreePillars = () => {
                   <div className="flex flex-col sm:hidden gap-3">
                     {/* Top row - Number and Icon */}
                     <div className="flex items-center justify-between">
-                      <div className={`text-3xl font-bold transition-colors duration-300 ${
-                        isHovered ? 'text-white' : 'text-gray-300'
+                      <div className={`text-3xl font-bold ${
+                        isSecondPillar ? 'text-white' : 'text-gray-300'
                       }`}>
                         {pillar.number}
                       </div>
@@ -105,13 +102,13 @@ const CompactThreePillars = () => {
                     
                     {/* Content */}
                     <div>
-                      <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-                        isHovered ? 'text-white' : 'text-white group-hover:text-cyan-400'
+                      <h3 className={`text-lg font-bold mb-2 ${
+                        isSecondPillar ? 'text-white' : 'text-white'
                       }`}>
                         {pillar.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                        isHovered ? 'text-gray-200' : 'text-gray-400'
+                      <p className={`text-sm leading-relaxed ${
+                        isSecondPillar ? 'text-gray-200' : 'text-gray-400'
                       }`}>
                         {pillar.subtitle}
                       </p>
@@ -121,21 +118,21 @@ const CompactThreePillars = () => {
                   {/* Tablet & Desktop Layout - Horizontal */}
                   <div className="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8">
                     {/* Number */}
-                    <div className={`text-3xl md:text-5xl lg:text-6xl font-bold transition-colors duration-300 flex-shrink-0 ${
-                      isHovered ? 'text-white' : 'text-gray-300'
+                    <div className={`text-3xl md:text-5xl lg:text-6xl font-bold flex-shrink-0 ${
+                      isSecondPillar ? 'text-white' : 'text-gray-300'
                     }`}>
                       {pillar.number}
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2 transition-colors duration-300 ${
-                        isHovered ? 'text-white' : 'text-white group-hover:text-cyan-400'
+                      <h3 className={`text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2 ${
+                        isSecondPillar ? 'text-white' : 'text-white'
                       }`}>
                         {pillar.title}
                       </h3>
-                      <p className={`text-sm md:text-base lg:text-lg leading-relaxed transition-colors duration-300 ${
-                        isHovered ? 'text-gray-200' : 'text-gray-400'
+                      <p className={`text-sm md:text-base lg:text-lg leading-relaxed ${
+                        isSecondPillar ? 'text-gray-200' : 'text-gray-400'
                       }`}>
                         {pillar.subtitle}
                       </p>

@@ -1,6 +1,10 @@
 "use client";
 import Image from "next/image";
 import Logobg from "../../../public/assets/innovators/logobg.svg";
+import a1 from "../../../public/assets/innovators/a1.svg";
+import a2 from "../../../public/assets/innovators/a2.svg";
+import a3 from "../../../public/assets/innovators/a3.svg";
+import a4 from "../../../public/assets/innovators/a4.svg";
 
 interface Testimonial {
   text: string;
@@ -22,84 +26,93 @@ interface AnimatedRowProps {
 
 const testimonials: Testimonial[] = [
   {
-    text: "They shipped in weeks what others scoped in quarters.",
+    text: "They didn't hand over; they handheld us to PMF.",
     name: "Jessica Miller",
     role: "Founder, HealthTech",
-    avatar: "/avatars/1.jpg",
+    avatar: a1,
   },
   {
-    text: "Clarity, speed, and quality—rare combo.",
+    text: "They shipped in weeks what others scoped in quarters",
     name: "Stephen Rai",
     role: "CEO, Creator App",
-    avatar: "/avatars/2.jpg",
+    avatar: a2,
   },
   {
-    text: "They didn't hand over; they handheld us to PMF.",
+    text: "Clarity, speed, and quality—rare combo",
     name: "Joshua Jones",
     role: "CPO, SaaS",
-    avatar: "/avatars/3.jpg",
+    avatar: a3,
   },
   {
     text: "Built a senior-heavy team that executes outcomes, not tasks.",
     name: "Amelia Brown",
     role: "CTO, Fintech",
-    avatar: "/avatars/4.jpg",
+    avatar: a4,
   },
   {
     text: "Innovation at its finest with exceptional delivery.",
     name: "Michael Chen",
     role: "VP Engineering, EdTech",
-    avatar: "/avatars/5.jpg",
+    avatar: a1,
   },
   {
     text: "Transformed our vision into reality seamlessly.",
     name: "Sarah Davis",
     role: "Product Manager, E-commerce",
-    avatar: "/avatars/6.jpg",
+    avatar: a2,
   },
   {
     text: "Best development partner we've ever worked with.",
     name: "David Wilson",
     role: "CTO, AI Startup",
-    avatar: "/avatars/7.jpg",
+    avatar: a3,
   },
   {
     text: "Speed and quality that exceeds all expectations.",
     name: "Emily Taylor",
     role: "Founder, MedTech",
-    avatar: "/avatars/8.jpg",
+    avatar: a4,
   },
   {
     text: "They understand business needs beyond just code.",
     name: "Robert Johnson",
     role: "CEO, Logistics",
-    avatar: "/avatars/9.jpg",
+    avatar: a1,
   },
   {
     text: "Exceptional team that delivers on every promise.",
     name: "Lisa Anderson",
     role: "Head of Product, Retail",
-    avatar: "/avatars/10.jpg",
+    avatar: a2,
   },
 ];
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => (
-  <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col justify-between hover:border-blue-500 transition-colors duration-300 min-w-[320px] flex-shrink-0">
-    <p className="text-gray-300 mb-4 italic text-left">"{testimonial.text}"</p>
-    <div className="flex items-center gap-3 mt-auto">
+ <div className="bg-gray-900/20 bg-[linear-gradient(180deg,rgba(1,170,255,0.05)_0%,rgba(1,170,255,0.02)_50%,rgba(1,170,255,0.03)_100%)] border border-gray-700 rounded-md p-6 flex flex-col justify-between hover:border-blue-500 transition-colors duration-300 w-80 h-64 flex-shrink-0">
+  {/* Text section - takes available space */}
+  <div className="border border-white/20 rounded-md pt-4 px-4 flex-1 flex items-start">
+    <p className="text-gray-300 italic text-left leading-relaxed break-words hyphens-auto">
+      {testimonial.text}
+    </p>
+  </div>
+  
+  {/* Author section - fixed at bottom */}
+  <div className="border border-white/10 rounded-md p-3 mt-4">
+    <div className="flex items-center gap-3">
       <Image
         src={testimonial.avatar}
         alt={testimonial.name}
         width={40}
         height={40}
-        className="rounded-full"
+        className="rounded-full flex-shrink-0"
       />
-      <div className="text-left">
-        <p className="font-semibold text-white">{testimonial.name}</p>
-        <p className="text-sm text-gray-400">{testimonial.role}</p>
+      <div className="text-left min-w-0">
+        <p className="font-semibold text-white truncate">{testimonial.name}</p>
+        <p className="text-sm text-gray-400 truncate">{testimonial.role}</p>
       </div>
     </div>
   </div>
+</div>
 );
 
 const AnimatedRow: React.FC<AnimatedRowProps> = ({ testimonials, direction, speed = 40 }) => {
@@ -173,20 +186,19 @@ export default function Testimonials(): React.ReactElement {
       `}</style>
 
       <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20 text-center overflow-hidden">
-      {/* Top Logos Arc */}
-<div className="relative w-full flex justify-center mb-12">
-  <div className="relative flex gap-12 flex-wrap justify-center">
-    <Image
-      src={Logobg}
-      alt="brand"
-      className="object-contain w-[150%] pb-12 md:pb-0 lg:pb-0 md:w-full h-auto"
-    />
-    <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 bg-black/50 backdrop-blur-sm">
-      Testimonials
-    </span>
-  </div>
-</div>
-
+        {/* Top Logos Arc */}
+        <div className="relative w-full flex justify-center mb-12">
+          <div className="relative flex gap-12 flex-wrap justify-center">
+            <Image
+              src={Logobg}
+              alt="brand"
+              className="object-contain w-[150%] pb-12 md:pb-0 lg:pb-0 md:w-full h-auto"
+            />
+            <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full border border-gray-600 text-gray-400 bg-black/50 backdrop-blur-sm">
+              Testimonials
+            </span>
+          </div>
+        </div>
 
         {/* Heading */}
         <h2 className="text-3xl md:text-6xl font-bold mb-12">
