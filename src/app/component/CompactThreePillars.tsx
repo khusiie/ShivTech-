@@ -83,37 +83,37 @@ const CompactThreePillars = () => {
                     background: 'linear-gradient(90deg, #01AAFF 0%, #000 62.5%)'
                   } : undefined}
                 >
-                  {/* Mobile Layout - Stacked */}
-                  <div className="flex flex-col sm:hidden gap-3">
-                    {/* Top row - Number and Icon */}
-                    <div className="flex items-center justify-between">
-                      <div className={`text-3xl font-bold ${
-                        isSecondPillar ? 'text-white' : 'text-gray-300'
-                      }`}>
-                        {pillar.number}
-                      </div>
-                      <Image 
-                        src={icon} 
-                        alt="AI Icon" 
-                        width={28} 
-                        height={32}
-                        className="w-7 h-8"
-                      />
+                  {/* Mobile Layout - Single Line */}
+                  <div className="flex sm:hidden items-center gap-2">
+                    {/* Number */}
+                    <div className={`text-xl font-bold flex-shrink-0 ${
+                      isSecondPillar ? 'text-white' : 'text-gray-300'
+                    }`}>
+                      {pillar.number}
                     </div>
                     
-                    {/* Content */}
-                    <div>
-                      <h3 className={`text-lg font-bold mb-2 ${
+                    {/* Content - Centered and flexible */}
+                    <div className="flex-1 text-start px-1">
+                      <h3 className={`text-xs font-bold mb-1 ${
                         isSecondPillar ? 'text-white' : 'text-white'
                       }`}>
                         {pillar.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed ${
+                      <p className={`text-xs leading-tight ${
                         isSecondPillar ? 'text-gray-200' : 'text-gray-400'
                       }`}>
                         {pillar.subtitle}
                       </p>
                     </div>
+                    
+                    {/* Icon */}
+                    <Image 
+                      src={icon} 
+                      alt="AI Icon" 
+                      width={20} 
+                      height={24}
+                      className="w-5 h-6 flex-shrink-0"
+                    />
                   </div>
 
                   {/* Tablet & Desktop Layout - Horizontal */}
