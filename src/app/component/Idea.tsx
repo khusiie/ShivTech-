@@ -54,7 +54,7 @@ const IdeaSection: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen  pb-2 md:pb-12 bg-black relative overflow-hidden">
+    <div className="min-h-screen  pb-0 md:pb-12 bg-black relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
