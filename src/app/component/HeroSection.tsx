@@ -149,7 +149,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 pt-25 pb-20">
         <div className="max-w-6xl mx-auto text-center">
        {/* Main Heading - Hidden on desktop (lg and above) */}
-<h1 className="lg:hidden text-4xl md:text-7xl font-large mt-4 mb-4 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+<h1 className="lg:hidden text-3xl md:text-7xl font-bold mt-4 mb-4 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
   From Idea to Impact in 60 Days
 </h1>
 
@@ -268,7 +268,7 @@ const HeroSection = () => {
                 <div className="flex justify-center">
                   <button
                     onClick={handleBookConsult}
-                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40"
+                    className="flex items-center justify-center gap-2 px-6  py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40"
                   >
                     <span className="text-sm font-semibold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
                       Book a 15-min consult
