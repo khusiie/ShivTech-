@@ -65,7 +65,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 pt-0">
+    <div className="min-h-screen bg-black text-white pb-0  px-8 md:p-8 pt-2">
       <div className="max-w-4xl mx-auto">
      
          <h2 
