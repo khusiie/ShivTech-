@@ -235,7 +235,7 @@ const HowitWorks = () => {
             className={`
               flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300
               ${isCurrentlyActive
-                ? 'bg-blue-600 text-white shadow-lg'
+                ? 'bg-white text-blue shadow-lg'
                 : 'bg-gray-800 text-gray-400'
               }
             `}
