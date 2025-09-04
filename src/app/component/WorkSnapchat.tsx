@@ -27,7 +27,7 @@ export default function WorkSnapshots() {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 text-center">
+    <section className="bg-black text-white   py-4 md:py-16 px-6 md:px-12 text-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

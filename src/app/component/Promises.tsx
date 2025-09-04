@@ -28,7 +28,7 @@ export default function DeliveryPromise() {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 font-sora">
+    <section className="bg-black text-white  py-4 md:py-16 px-6 md:px-12 font-sora">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

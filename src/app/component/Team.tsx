@@ -14,7 +14,7 @@ const features = [
 
 export default function TeamCred() {
   return (
-    <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12  font-Satoshi">
+    <section className="w-full bg-black text-white  py-4 md:py-20 px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12  font-Satoshi">
       {/* LEFT SIDE */}
       <div className="flex-1 max-w-xl">
         {/* Badge */}

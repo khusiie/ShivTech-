@@ -149,7 +149,7 @@ const HowitWorks = () => {
     return (
         <section
             ref={sectionRef}
-            className="py-16 md:py-20 bg-black relative overflow-hidden font-sora"
+            className=" py-4 md:py-20 bg-black relative overflow-hidden font-sora"
         >
             <div className="relative z-10 container mx-auto px-4">
                 {/* Section Header */}
