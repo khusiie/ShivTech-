@@ -149,7 +149,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 pt-25 pb-20">
         <div className="max-w-6xl mx-auto text-center">
        {/* Main Heading - Hidden on desktop (lg and above) */}
-<h1 className="lg:hidden text-3xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+<h1 className="lg:hidden text-4xl md:text-7xl font-large mt-4 mb-4 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
   From Idea to Impact in 60 Days
 </h1>
 
