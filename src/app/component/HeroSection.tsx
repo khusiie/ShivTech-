@@ -419,7 +419,7 @@ const HeroSection = () => {
               {/* Search-style Input */}
               <div className="relative">
                           <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
-                          <div className="absolute inset-0 rounded-[25.875px] bg-[#0003ab] blur-lg "></div>
+                          <div className="absolute inset-0 rounded-[25.875px] bg-[#1113a5] blur-lg "></div>
                 <div className="relative rounded-3xl px-[2px] p-[1px] bg-gradient-to-b from-white/80 to-white/20">
                   <input
                     type="text"
