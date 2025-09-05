@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, ReactElement } from "react";
 
-// Define a type for a technology item
 interface TechItem {
   name: string;
   svg: ReactElement;
@@ -82,7 +81,6 @@ const techStack = [
  
 ];
 
-// Define a type for styles returned by getCardStyle
 interface CardStyle {
   size: string;
   padding: string;
@@ -109,18 +107,16 @@ export default function Technologies(): ReactElement {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // Autoplay effect: change active tech every 2 seconds if not paused
+  // Autoplay effect
   useEffect(() => {
     if (!isAutoPlaying || hovered !== null || isMobile) return;
-
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % techStack.length);
     }, 2000);
-
     return () => clearInterval(interval);
   }, [isAutoPlaying, hovered, isMobile]);
 
-  // Handlers with typed parameters
+  // Handlers
   const handleUserInteraction = (idx: number): void => {
     setIsAutoPlaying(false);
     setActive(idx);
@@ -137,7 +133,7 @@ export default function Technologies(): ReactElement {
     setTimeout(() => setIsAutoPlaying(true), 1000);
   };
 
-  // Card style logic with return type
+  // Card style logic
   const getCardStyle = (idx: number): CardStyle => {
     if (isMobile) {
       return {
@@ -190,40 +186,47 @@ export default function Technologies(): ReactElement {
 
   return (
     <section className="w-full bg-black text-white py-6 md:py-10 px-2 flex flex-col items-center overflow-hidden">
-        <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
-         Our Stack
-        </span>
-
-  <h2 className="
-  text-4xl sm:text-6xl font-bold mb-10 sm:mb-16 text-center
-  bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
-  bg-clip-text text-transparent
-">
-  Technologies We Used
-</h2>
-
-
+      <span className="px-4 py-1 rounded-full border border-gray-700 text-sm text-gray-300 mb-4">
+        Our Stack
+      </span>
+      <h2
+        className="
+          text-4xl sm:text-6xl font-bold mb-10 sm:mb-16 text-center
+          bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
+          bg-clip-text text-transparent
+        "
+      >
+        Technologies We Used
+      </h2>
       {isMobile ? (
         <div className="w-full flex flex-col items-center mb-8">
           <div className="flex items-center justify-center w-full">
             <button
               aria-label="Previous"
-              onClick={() => setActive((active - 1 + techStack.length) % techStack.length)}
+              onClick={() =>
+                setActive((active - 1 + techStack.length) % techStack.length)
+              }
               className="p-2 text-cyan-400 active:scale-90"
             >
               ◀
             </button>
             <div className="mx-6">
-              <div
-                className="transition-all duration-300 w-16 h-16 mx-auto flex items-center justify-center"
-                style={{
-                  borderRadius: "12px",
-                  background: "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)",
-                  boxShadow: "0 0 48px 0 rgba(153, 221, 255, 0.25)",
-                }}
-              >
-                {techStack[active].svg}
-              </div>
+ <div
+  className="transition-all duration-300 w-25 h-25 mx-auto flex items-center justify-center"
+  style={{
+    borderRadius: "12px",
+    background:
+      "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)",
+    boxShadow: "0 0 48px 0 rgba(153, 221, 255, 0.25)",
+  }}
+>
+  {/* Centered SVG with fixed size */}
+  <div className="flex items-center justify-center w-18 h-18">
+    {techStack[active].svg}
+  </div>
+</div>
+
+
               <p className="mt-4 text-xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent text-center">
                 {techStack[active].name}
               </p>
@@ -253,48 +256,51 @@ export default function Technologies(): ReactElement {
         </div>
       ) : (
         <>
-          <div className="relative w-full max-w-5xl h-32 mb-12">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex items-center justify-center space-x-3 sm:space-x-8">
-                {techStack.map((tech, idx) => {
-                  const { size, padding, scale, opacity, zIndex } = getCardStyle(idx);
-                  const displayActive = hovered !== null ? hovered : active;
-                  const isActive = idx === displayActive;
-
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => handleUserInteraction(idx)}
-                      onMouseEnter={() => handleMouseEnter(idx)}
-                      onMouseLeave={handleMouseLeave}
-                      className={`relative transition-all duration-500 ease-out transform ${
-                        isActive
-                          ? "text-white"
-                          : "bg-gray-800/50 hover:bg-gray-700/60 text-gray-300 hover:text-white border border-gray-700/50"
-                      } ${padding} ${scale} ${opacity} ${zIndex}`}
-                      style={{
-                        borderRadius: "12px",
-                        background: isActive
-                          ? "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)"
-                          : undefined,
-                        transform: isActive
-                          ? "scale(1.2) translateY(-8px)"
-                          : hovered === idx
-                          ? "scale(1.1) translateY(-4px)"
-                          : "scale(1)",
-                        boxShadow: isActive
-                          ? "0 0 78.85px 0 rgba(153, 221, 255, 0.50)"
-                          : hovered === idx
-                          ? "0 10px 25px -5px rgba(0, 0, 0, 0.3)"
-                          : "none",
-                      }}
-                      aria-label={`Goto ${tech.name}`}
+          {/* Desktop: Centered Carousel */}
+          <div className="w-full max-w-5xl mx-auto h-32 mb-12 flex items-center justify-center">
+            <div className="flex items-center justify-center w-full space-x-3 sm:space-x-8">
+              {techStack.map((tech, idx) => {
+                const { size, padding, scale, opacity, zIndex } =
+                  getCardStyle(idx);
+                const displayActive = hovered !== null ? hovered : active;
+                const isActive = idx === displayActive;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => handleUserInteraction(idx)}
+                    onMouseEnter={() => handleMouseEnter(idx)}
+                    onMouseLeave={handleMouseLeave}
+                    className={`relative transition-all duration-500 ease-out transform ${
+                      isActive
+                        ? "text-white"
+                        : "bg-gray-800/50 hover:bg-gray-700/60 text-gray-300 hover:text-white border border-gray-700/50"
+                    } ${padding} ${scale} ${opacity} ${zIndex}`}
+                    style={{
+                      borderRadius: "12px",
+                      background: isActive
+                        ? "linear-gradient(90deg, #01AAFF 0%, rgba(1, 170, 255, 0.40) 100%)"
+                        : undefined,
+                      transform: isActive
+                        ? "scale(1.2) translateY(-8px)"
+                        : hovered === idx
+                        ? "scale(1.1) translateY(-4px)"
+                        : "scale(1)",
+                      boxShadow: isActive
+                        ? "0 0 78.85px 0 rgba(153, 221, 255, 0.50)"
+                        : hovered === idx
+                        ? "0 10px 25px -5px rgba(0, 0, 0, 0.3)"
+                        : "none",
+                    }}
+                    aria-label={`Goto ${tech.name}`}
+                  >
+                    <div
+                      className={`flex items-center justify-center ${size}`}
                     >
-                      <div className={`transition-all duration-300 ${size}`}>{tech.svg}</div>
-                    </button>
-                  );
-                })}
-              </div>
+                      {tech.svg}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="text-center min-h-[60px] flex flex-col items-center justify-center">
@@ -302,8 +308,7 @@ export default function Technologies(): ReactElement {
               {techStack[hovered !== null ? hovered : active].name}
             </p>
           </div>
-
-          <div className="flex space-x-2 mt-6">
+          <div className="flex space-x-2 mt-6 justify-center">
             {techStack.map((_, idx) => (
               <button
                 key={idx}
