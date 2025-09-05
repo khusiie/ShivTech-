@@ -5,7 +5,8 @@ import Star from "../../../public/assets/Hero/star.svg";
 import Image from 'next/image';
 import bg from '../../../public/assets/Hero/bg.svg';
 import Icon from "../../../public/assets/navbar/navbuttonicon.svg";
-
+import Shivai from "../../../public/assets/HeroSection/ShivAi.svg";
+import user from "../../../public/assets/HeroSection/user.svg";
 import fill from '../../../public/assets/HeroSection/fill.svg';
 import Mic from '../../../public/assets/HeroSection/mic.svg';
 import v1 from "../../../public/assets/HeroSection/v1.svg";
@@ -226,9 +227,7 @@ const HeroSection = () => {
                       {/* Question - Left side */}
                       <div className="flex justify-start">
                         <div className="flex items-start gap-3 max-w-2xl">
-                          <div className="bg-cyan-500 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 text-sm font-bold">
-                            Q
-                          </div>
+                         <Image src={Shivai} alt="" className='w-6 h-6'/>
                           <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 border border-cyan-400/30">
                             <p className="text-cyan-100 font-medium">{question}</p>
                           </div>
@@ -242,9 +241,7 @@ const HeroSection = () => {
                             <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
                               <p className="text-white">{answers[index]}</p>
                             </div>
-                            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                              <span className="text-white text-sm">👤</span>
-                            </div>
+                           <Image src={user} alt="user" className='w-8 h-8'/> 
                           </div>
                         </div>
                       )}
@@ -337,9 +334,7 @@ const HeroSection = () => {
                         {/* Previous Question - Left side */}
                         <div className="flex justify-start">
                           <div className="flex items-start gap-3 max-w-xl">
-                            <div className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">
-                              Q
-                            </div>
+                           <Image src={Shivai} alt="logo" className='w-8 h-8'/>
                             <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
                               <p className="text-cyan-200 text-sm font-medium">{questions[index]}</p>
                             </div>
@@ -352,9 +347,12 @@ const HeroSection = () => {
                             <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-3 border border-white/20">
                               <p className="text-white text-sm">{answers[index]}</p>
                             </div>
-                            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                              <span className="text-white text-xs">👤</span>
-                            </div>
+                                
+                                   <Image src={user} alt="image" className=' w-8 h-8 rounded-full'/>
+
+
+                    
+                         
                           </div>
                         </div>
                       </div>
@@ -367,7 +365,7 @@ const HeroSection = () => {
                   <div className="flex justify-start">
                     <div className="flex items-start gap-3 max-w-2xl">
                       <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <span className="text-sm font-bold">Q</span>
+                       <Image src={Shivai} alt="" className='w-8 h-8'/>
                       </div>
                       <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
                         <p className="text-white text-lg leading-relaxed font-medium">
@@ -380,7 +378,7 @@ const HeroSection = () => {
 
                 {/* Answer Input - Expandable */}
                 <div className="relative mb-6">
-                  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-cyan-400/50 to-blue-500/30">
+                  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-black-400/50 to-blue-500/30">
                     {isInputExpanded ? (
                       <div className="relative">
                         <Image src={Star} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
@@ -395,17 +393,27 @@ const HeroSection = () => {
                           className="w-full rounded-2xl border-none bg-black/80 pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
                         />
 
+                      <div className="flex items-center justify-end gap-3">
+  <button
+    onClick={handleDoMagic}
+    className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1 border border-white transition-colors duration-300 group"
+  >
+    <Image
+      src={Mic}
+      alt="Microphone"
+      className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300"
+    />
+  </button>
 
+  <button
+    onClick={handleAnswerSubmit}
+    disabled={!currentAnswer.trim()}
+    className="bg-blue-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium px-2 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 z-10 flex items-center gap-1"
+  >
+    <Image src={submit} alt="Send" className="w-6 h-6" />
+  </button>
+</div>
 
-                        <button
-                          onClick={handleAnswerSubmit}
-                          disabled={!currentAnswer.trim()}
-                          className="absolute right-3 bottom-3 bg-blue-500 hover:bg-cyan-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium px-2 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 z-10 flex items-center gap-1"
-
-                        >
-                          <Image src={submit} alt="Send" className="w-6 h-6" />
-
-                        </button>
                       </div>
                     ) : (
                       <input
