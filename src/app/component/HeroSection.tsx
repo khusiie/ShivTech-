@@ -189,12 +189,12 @@ const HeroSection = () => {
                     <div key={index} className="flex items-center flex-shrink-0">
                       <div
                         className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${showCompletion
+                          ? 'bg-[#0093DD] text-white'
+                          : index === currentQuestion
                             ? 'bg-[#0093DD] text-white'
-                            : index === currentQuestion
-                              ? 'bg-[#0093DD] text-white'
-                              : index < currentQuestion
-                                ? 'bg-[#0093DD]/80 text-white'
-                                : 'bg-white/10 text-gray-500 border border-white/20'
+                            : index < currentQuestion
+                              ? 'bg-[#0093DD]/80 text-white'
+                              : 'bg-white/10 text-gray-500 border border-white/20'
                           }`}
                       >
                         {showCompletion ? (
@@ -208,10 +208,10 @@ const HeroSection = () => {
                       {index < questions.length - 1 && (
                         <div
                           className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${showCompletion
+                            ? 'bg-[#0093DD]'
+                            : index < currentQuestion
                               ? 'bg-[#0093DD]'
-                              : index < currentQuestion
-                                ? 'bg-[#0093DD]'
-                                : 'bg-white/10'
+                              : 'bg-white/10'
                             }`}
                         ></div>
                       )}
@@ -325,24 +325,26 @@ const HeroSection = () => {
                       ... Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
                     </p>
                   </div>
+<div className="flex flex-col items-center gap-6 text-center">
+  {/* Success Icon */}
+  <div className="relative inline-block">
+    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center shadow-2xl">
+      <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
+    </div>
+    <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
+  </div>
 
-                  <div className="flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-6 mx-auto text-start">
-                    {/* Success Icon */}
-                    <div className="relative inline-block pl-6 md:pl-0 pb-2">
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center shadow-2xl">
-                        <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
-                      </div>
-                      <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
-                    </div>
+  {/* Progress Message */}
+  <div>
+    <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 sm:mb-4">
+      All set!
+    </h2>
+    <p className="text-white/40 text-sm sm:text-lg sm:mb-8 px-4">
+      Check Your Email For A Confirmation And Next Steps.
+    </p>
+  </div>
+</div>
 
-                    {/* Progress Message */}
-                    <div>
-                      <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 px-2 md:text-center sm:mb-4">All set!</h2>
-                      <p className="text-white/40 text-sm sm:text-lg sm:mb-8 px-2 sm:px-4">
-                        Check Your Email For A Confirmation And Next Steps.
-                      </p>
-                    </div>
-                  </div>
 
                 </div>
 
@@ -381,10 +383,10 @@ const HeroSection = () => {
                   {questions.map((_, index) => (
                     <div key={index} className="flex items-center flex-shrink-0">
                       <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs font-bold transition-all duration-300 ${index === currentQuestion
-                          ? 'bg-[#0093DD] text-white shadow-lg shadow-blue-500/50'
-                          : index < currentQuestion
-                            ? 'bg-[#0093DD] text-white'
-                            : 'bg-white/10 text-gray-500 border border-white/20'
+                        ? 'bg-[#0093DD] text-white shadow-lg shadow-blue-500/50'
+                        : index < currentQuestion
+                          ? 'bg-[#0093DD] text-white'
+                          : 'bg-white/10 text-gray-500 border border-white/20'
                         }`}>
                         {index < currentQuestion ? (
                           <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -579,7 +581,7 @@ const HeroSection = () => {
                     onClick={handleDoMagic}
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-2 border-1 border-white transition-colors duration-300 group z-10"
                   >
-                    <Image src={Mic} alt="Microphone" className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
+                    <Image src={Mic} alt="Microphone" className="w-8 h-8 transform group-hover:scale-110 transition-transform duration-300" />
                   </button>
                 </div>
               </div>
@@ -612,8 +614,8 @@ const HeroSection = () => {
                         <button
                           onClick={handleDoMagic}
                           className={`bg-[#00ABEB] text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center justify-center ${formData.idea && formData.idea.length > 80
-                              ? 'w-10 h-10 p-0' // Circular mode - only icon
-                              : 'px-4 py-2 gap-1' // Full button mode - icon + text
+                            ? 'w-10 h-10 p-0' // Circular mode - only icon
+                            : 'px-4 py-2 gap-1' // Full button mode - icon + text
                             }`}
                           title={formData.idea && formData.idea.length > 80 ? 'Do the magic' : undefined}
                         >
@@ -621,15 +623,15 @@ const HeroSection = () => {
                             src={fill}
                             alt="star"
                             className={`transition-all duration-300 ${formData.idea && formData.idea.length > 80
-                                ? 'w-5 h-5' // Larger icon when circular
-                                : 'w-4 h-4' // Smaller icon when with text
+                              ? 'w-5 h-5' // Larger icon when circular
+                              : 'w-4 h-4' // Smaller icon when with text
                               }`}
                           />
                           {/* Text that fades out when button becomes circular */}
                           <span
                             className={`text-sm transition-all duration-300 overflow-hidden ${formData.idea && formData.idea.length > 80
-                                ? 'w-0 opacity-0' // Hidden when circular
-                                : 'w-auto opacity-100' // Visible when full button
+                              ? 'w-0 opacity-0' // Hidden when circular
+                              : 'w-auto opacity-100' // Visible when full button
                               }`}
                           >
                             Do the magic
