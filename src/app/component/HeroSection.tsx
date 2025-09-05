@@ -173,89 +173,87 @@ const HeroSection = () => {
               MVP—Fixed Price. AI-First. Hand-In-Hand.
             </p>
           </div>
-         {showCompletion ? (
-  /* Completion UI - "All set!" screen */
-  <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0 ">
-    <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-4 sm:p-6 lg:p-8 border border-blue-500/30">
-      <div className="text-center mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
-        <p className="text-gray-300 text-sm sm:text-base px-2">
-          Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
-        </p>
-      </div>
+          {showCompletion ? (
+            /* Completion UI - "All set!" screen - Full width on mobile */
+            <div className="w-full sm:max-w-2xl mx-auto mb-8 px-2 sm:px-4 md:px-0">
+              <div className="bg-black/40 backdrop-blur-lg rounded-none sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-0 sm:border border-blue-500/30 min-h-screen sm:min-h-0">
+                <div className="text-center mb-6 sm:mb-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
+                  <p className="text-gray-300 text-sm sm:text-base px-2">
+                    Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
+                  </p>
+                </div>
 
-      <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
-        {questions.map((_, index) => (
-          <div key={index} className="flex items-center flex-shrink-0">
-            <div
-              className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${
-                showCompletion
-                  ? 'bg-[#0093DD] text-white'
-                  : index === currentQuestion
-                    ? 'bg-[#0093DD] text-white'
-                    : index < currentQuestion
-                      ? 'bg-[#0093DD]/80 text-white'
-                      : 'bg-white/10 text-gray-500 border border-white/20'
-              }`}
-            >
-              {showCompletion ? (
-                <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
-              ) : index < currentQuestion ? (
-                <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
-              ) : (
-                index + 1
-              )}
-            </div>
-            {index < questions.length - 1 && (
-              <div
-                className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${
-                  showCompletion
-                    ? 'bg-[#0093DD]'
-                    : index < currentQuestion
-                      ? 'bg-[#0093DD]'
-                      : 'bg-white/10'
-                }`}
-              ></div>
-            )}
-          </div>
-        ))}
-      </div>
+                <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2 px-2">
+                  {questions.map((_, index) => (
+                    <div key={index} className="flex items-center flex-shrink-0">
+                      <div
+                        className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${showCompletion
+                            ? 'bg-[#0093DD] text-white'
+                            : index === currentQuestion
+                              ? 'bg-[#0093DD] text-white'
+                              : index < currentQuestion
+                                ? 'bg-[#0093DD]/80 text-white'
+                                : 'bg-white/10 text-gray-500 border border-white/20'
+                          }`}
+                      >
+                        {showCompletion ? (
+                          <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
+                        ) : index < currentQuestion ? (
+                          <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
+                        ) : (
+                          index + 1
+                        )}
+                      </div>
+                      {index < questions.length - 1 && (
+                        <div
+                          className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${showCompletion
+                              ? 'bg-[#0093DD]'
+                              : index < currentQuestion
+                                ? 'bg-[#0093DD]'
+                                : 'bg-white/10'
+                            }`}
+                        ></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
 
-    {/* Previous Questions Summary */}
-<div className="mb-8 sm:mb-10 max-h-80 sm:max-h-96 overflow-y-auto space-y-4 sm:space-y-6 pr-3 custom-aesthetic-scroll">
-  {questions.map((question, index) => (
-    <div key={index} className="space-y-4 sm:space-y-6">
-      {/* Question - Left side */}
-      <div className="flex justify-start">
-        <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-          <Image src={Shivai} alt="" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
-          <div className="bg-[#0093DD] backdrop-blur-sm rounded-lg rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-140px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
-            <p className="text-cyan-100 font-medium text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere">
-              {question}
-            </p>
-          </div>
-        </div>
-      </div>
+                {/* Previous Questions Summary */}
+                <div className="mb-8 sm:mb-10 max-h-80 sm:max-h-96 overflow-y-auto space-y-4 sm:space-y-6 pr-1 sm:pr-3 custom-aesthetic-scroll">
+                  {questions.map((question, index) => (
+                    <div key={index} className="space-y-4 sm:space-y-6 px-2 sm:px-0">
+                      {/* Question - Left side */}
+                      <div className="flex justify-start">
+                        <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                          <Image src={Shivai} alt="" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
+                          <div className="bg-[#0093DD] backdrop-blur-sm rounded-lg rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-80px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
+                            <p className="text-cyan-100 font-medium text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere">
+                              {question}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
 
-      {/* Answer - Right side (if exists) */}
-      {answers[index] && (
-        <div className="flex justify-end">
-          <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg rounded-tl-xs p-3 border border-white/20 max-w-[calc(100vw-140px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
-              <p className="text-white text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
-                {answers[index]}
-              </p>
-            </div>
-            <Image src={user} alt="user" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
-          </div>
-        </div>
-      )}
-    </div>
-  ))}
-</div>
+                      {/* Answer - Right side (if exists) */}
+                      {answers[index] && (
+                        <div className="flex justify-end">
+                          <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                            <div className="bg-white/10 backdrop-blur-sm rounded-lg rounded-tl-xs p-3 border border-white/20 max-w-[calc(100vw-80px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
+                              <p className="text-white text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
+                                {answers[index]}
+                              </p>
+                            </div>
+                            <Image src={user} alt="user" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
 
-{/* CSS for aesthetic white scrollbar */}
-<style jsx>{`
+                {/* CSS for aesthetic white scrollbar */}
+                <style jsx>{`
   .custom-aesthetic-scroll {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
@@ -320,139 +318,134 @@ const HeroSection = () => {
   }
 `}</style>
 
-      {/* Success Animation */}
-      <div className="text-center mb-6 sm:mb-8">
-        <div className="w-fit mx-auto text-center border-2 py-2 sm:py-3 px-3 sm:px-4 mb-6 sm:mb-8 rounded-2xl bg-[#70BEFABF]/10 border-amber-100/10">
-          <p className="text-white text-xs sm:text-sm">
-            ... Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
-          </p>
-        </div>
+                {/* Success Animation */}
+                <div className="text-center mb-6 sm:mb-8 px-2">
+                  <div className="w-fit mx-auto text-center border-2 py-2 sm:py-3 px-3 sm:px-4 mb-6 sm:mb-8 rounded-2xl bg-[#70BEFABF]/10 border-amber-100/10">
+                    <p className="text-white text-xs sm:text-sm">
+                      ... Perfect! Our Architects Are On It. Expect Your Proposal In 24 Hours. Or Earlier...
+                    </p>
+                  </div>
 
-    
+                  <div className="flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-6 mx-auto text-start">
+                    {/* Success Icon */}
+                    <div className="relative inline-block pl-6 md:pl-0 pb-2">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center shadow-2xl">
+                        <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
+                      </div>
+                      <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
+                    </div>
 
-<div className="flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-6 mx-auto text-start">
-  {/* Success Icon */}
-  <div className="relative inline-block pl-6 md:pl-0 pb-2">
-    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F]  to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center shadow-2xl">
-      <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
-    </div>
-    <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
-  </div>
+                    {/* Progress Message */}
+                    <div>
+                      <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 px-2 md:text-center sm:mb-4">All set!</h2>
+                      <p className="text-white/40 text-sm sm:text-lg sm:mb-8 px-2 sm:px-4">
+                        Check Your Email For A Confirmation And Next Steps.
+                      </p>
+                    </div>
+                  </div>
 
-  {/* Progress Message */}
-  <div>
-    <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 px-2 md:text-center sm:mb-4">All set!</h2>
-    <p className="text-white/40 text-sm sm:text-lg  sm:mb-8 px-2 sm:px-4">
-      Check Your Email For A Confirmation And Next Steps.
-    </p>
-  </div>
-</div>
+                </div>
 
-
-      </div>
-
-      {/* Final CTA Button */}
-      <div className="flex justify-center px-4 pb-4">
-        <button
-          onClick={handleBookConsult}
-          className="flex items-center justify-center gap-2 px-4 sm:px-6  py-2.5 sm:py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40 w-full sm:w-auto max-w-sm"
-        >
-          <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-            Book a 15-min consult
-          </span>
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center ml-1">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center">
-              <Image src={Icon} alt="icon" className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-) : showQuestions ? (
-  /* Quick Questions Interface */
-  <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0">
-    <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-4 sm:p-6 lg:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-      {/* Header */}
-      <div className="text-center mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
-        <p className="text-gray-300 text-sm sm:text-base px-2">
-          Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
-        </p>
-      </div>
-
-      {/* Progress Indicators - Horizontal dots */}
-      <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
-        {questions.map((_, index) => (
-          <div key={index} className="flex items-center flex-shrink-0">
-            <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs font-bold transition-all duration-300 ${
-              index === currentQuestion
-                ? 'bg-[#0093DD] text-white shadow-lg shadow-blue-500/50'
-                : index < currentQuestion
-                  ? 'bg-[#0093DD] text-white'
-                  : 'bg-white/10 text-gray-500 border border-white/20'
-            }`}>
-              {index < currentQuestion ? (
-                <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
-              ) : (
-                index + 1
-              )}
-            </div>
-            {index < questions.length - 1 && (
-              <div className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${
-                index < currentQuestion ? 'bg-[#0093DD]' : 'bg-white/10'
-              }`}></div>
-            )}
-          </div>
-        ))}
-      </div>
-
-  {/* Show all previous Q&A with scroll if needed */}
-{currentQuestion > 0 && (
-  <div 
-    className="mb-6 max-h-32 sm:max-h-40 overflow-y-auto space-y-3 sm:space-y-4 pr-2 scrollbar-hide"
-    style={{
-      scrollbarWidth: 'none', /* Firefox */
-      msOverflowStyle: 'none', /* Internet Explorer 10+ */
-    }}
-  >
-    {/* Show all previous questions and answers */}
-    <div className="space-y-3">
-      {Array.from({ length: currentQuestion }).map((_, index) => (
-        <div key={index} className="space-y-2">
-          {/* Previous Question - Left side */}
-          <div className="flex justify-start">
-            <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-              <Image src={Shivai} alt="logo" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
-              <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-2 sm:p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl">
-                <p className="text-white text-xs sm:text-sm font-medium break-words whitespace-pre-wrap overflow-wrap-anywhere">
-                  {questions[index]}
-                </p>
+                {/* Final CTA Button */}
+                <div className="flex justify-center px-2 sm:px-4 pb-4">
+                  <button
+                    onClick={handleBookConsult}
+                    className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40 w-full sm:w-auto max-w-sm"
+                  >
+                    <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
+                      Book a 15-min consult
+                    </span>
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center ml-1">
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full flex items-center justify-center">
+                        <Image src={Icon} alt="icon" className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                      </div>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Previous Answer - Right side */}
-          {answers[index] && (
-            <div className="flex justify-end">
-              <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-                <div className="bg-white/10 backdrop-blur-sm rounded-md rounded-tl-xs p-2 sm:p-3 border border-white/20 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl overflow-hidden">
-                  <p className="text-white text-xs sm:text-sm break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
-                    {answers[index]}
+          ) : showQuestions ? (
+            /* Quick Questions Interface */
+            <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0">
+              <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-4 sm:p-6 lg:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
+                {/* Header */}
+                <div className="text-center mb-6 sm:mb-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
+                  <p className="text-gray-300 text-sm sm:text-base px-2">
+                    Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
                   </p>
                 </div>
-                <Image src={user} alt="image" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0 mt-0.5" />
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  </div>
-)}
 
-{/* CSS for completely hidden scrollbar */}
-<style jsx>{`
+                {/* Progress Indicators - Horizontal dots */}
+                <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
+                  {questions.map((_, index) => (
+                    <div key={index} className="flex items-center flex-shrink-0">
+                      <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs font-bold transition-all duration-300 ${index === currentQuestion
+                          ? 'bg-[#0093DD] text-white shadow-lg shadow-blue-500/50'
+                          : index < currentQuestion
+                            ? 'bg-[#0093DD] text-white'
+                            : 'bg-white/10 text-gray-500 border border-white/20'
+                        }`}>
+                        {index < currentQuestion ? (
+                          <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
+                        ) : (
+                          index + 1
+                        )}
+                      </div>
+                      {index < questions.length - 1 && (
+                        <div className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${index < currentQuestion ? 'bg-[#0093DD]' : 'bg-white/10'
+                          }`}></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Show all previous Q&A with scroll if needed */}
+                {currentQuestion > 0 && (
+                  <div
+                    className="mb-6 max-h-32 sm:max-h-40 overflow-y-auto space-y-3 sm:space-y-4 pr-2 scrollbar-hide"
+                    style={{
+                      scrollbarWidth: 'none', /* Firefox */
+                      msOverflowStyle: 'none', /* Internet Explorer 10+ */
+                    }}
+                  >
+                    {/* Show all previous questions and answers */}
+                    <div className="space-y-3">
+                      {Array.from({ length: currentQuestion }).map((_, index) => (
+                        <div key={index} className="space-y-2">
+                          {/* Previous Question - Left side */}
+                          <div className="flex justify-start">
+                            <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                              <Image src={Shivai} alt="logo" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
+                              <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-2 sm:p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl">
+                                <p className="text-white text-xs sm:text-sm font-medium break-words whitespace-pre-wrap overflow-wrap-anywhere">
+                                  {questions[index]}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Previous Answer - Right side */}
+                          {answers[index] && (
+                            <div className="flex justify-end">
+                              <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                                <div className="bg-white/10 backdrop-blur-sm rounded-md rounded-tl-xs p-2 sm:p-3 border border-white/20 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl overflow-hidden">
+                                  <p className="text-white text-xs sm:text-sm break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
+                                    {answers[index]}
+                                  </p>
+                                </div>
+                                <Image src={user} alt="image" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0 mt-0.5" />
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* CSS for completely hidden scrollbar */}
+                <style jsx>{`
   .scrollbar-hide {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -462,106 +455,106 @@ const HeroSection = () => {
   }
 `}</style>
 
-      {/* Current Question - Left side */}
-      <div className="mb-6 sm:mb-8">
-        <div className="flex justify-start">
-          <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-            <div className="bg-[#0093DD] text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
-              <Image src={Shivai} alt="" className="w-7 h-7 sm:w-8 sm:h-8" />
-            </div>
-            <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-2xl">
-              <p className="text-white text-sm sm:text-base leading-relaxed font-medium break-words whitespace-pre-wrap">
-                {questions[currentQuestion]}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+                {/* Current Question - Left side */}
+                <div className="mb-6 sm:mb-8">
+                  <div className="flex justify-start">
+                    <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                      <div className="bg-[#0093DD] text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Image src={Shivai} alt="" className="w-7 h-7 sm:w-8 sm:h-8" />
+                      </div>
+                      <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-2xl">
+                        <p className="text-white text-sm sm:text-base leading-relaxed font-medium break-words whitespace-pre-wrap">
+                          {questions[currentQuestion]}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-      {/* Answer Input - Expandable */}
-<div className="relative mb-4 sm:mb-6">
-  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-black-400/50 to-blue-500/30">
-    <div className="relative">
-      {isInputExpanded ? (
-        <>
-          <Image src={Star} alt="Star" className="absolute left-3 sm:left-4 top-3 sm:top-4 w-4 h-4 sm:w-5 sm:h-5 z-10" />
-          <textarea
-            value={currentAnswer}
-            onChange={(e) => setCurrentAnswer(e.target.value)}
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-            onKeyDown={handleKeyPress}
-            placeholder="Type your answer..."
-            rows={4}
-            className="w-full rounded-2xl border-none bg-black/80 pl-10 sm:pl-12 pr-16 sm:pr-20 py-3 sm:py-4 pb-12 sm:pb-16 text-base sm:text-lg text-white placeholder-gray-400 focus:outline-none resize-none scrollbar-hide"
-            style={{
-              scrollbarWidth: 'none', /* Firefox */
-              msOverflowStyle: 'none', /* Internet Explorer 10+ */
-            }}
-          />
-          {/* Buttons positioned inside textarea at bottom right */}
-          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={handleAnswerSubmit}
-              disabled={!currentAnswer.trim()}
-              className="bg-[#00ABEB] hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
-            >
-              <Image src={submit} alt="Send" className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-          </div>
-        </>
-      ) : (
-        <>
-         <div className="flex items-center gap-2 w-full rounded-2xl border-none bg-black/80 px-3 py-3 sm:py-4">
-  <Image
-    src={Star}
-    alt="Star"
-    className="w-4 h-4 sm:w-5 sm:h-5 z-10"
-  />
-  <input
-    type="text"
-    value={currentAnswer}
-    onChange={(e) => setCurrentAnswer(e.target.value)}
-    onFocus={handleInputFocus}
-    onKeyDown={handleKeyPress}
-    placeholder="Type your answer..."
-    className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none text-base sm:text-lg"
-  />
-</div>
+                {/* Answer Input - Expandable */}
+                <div className="relative mb-4 sm:mb-6">
+                  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-black-400/50 to-blue-500/30">
+                    <div className="relative">
+                      {isInputExpanded ? (
+                        <>
+                          <Image src={Star} alt="Star" className="absolute left-3 sm:left-4 top-3 sm:top-4 w-4 h-4 sm:w-5 sm:h-5 z-10" />
+                          <textarea
+                            value={currentAnswer}
+                            onChange={(e) => setCurrentAnswer(e.target.value)}
+                            onFocus={handleInputFocus}
+                            onBlur={handleInputBlur}
+                            onKeyDown={handleKeyPress}
+                            placeholder="Type your answer..."
+                            rows={4}
+                            className="w-full rounded-2xl border-none bg-black/80 pl-10 sm:pl-12 pr-16 sm:pr-20 py-3 sm:py-4 pb-12 sm:pb-16 text-base sm:text-lg text-white placeholder-gray-400 focus:outline-none resize-none scrollbar-hide"
+                            style={{
+                              scrollbarWidth: 'none', /* Firefox */
+                              msOverflowStyle: 'none', /* Internet Explorer 10+ */
+                            }}
+                          />
+                          {/* Buttons positioned inside textarea at bottom right */}
+                          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex items-center gap-2 sm:gap-3">
+                            <button
+                              onClick={handleAnswerSubmit}
+                              disabled={!currentAnswer.trim()}
+                              className="bg-[#00ABEB] hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
+                            >
+                              <Image src={submit} alt="Send" className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex items-center gap-2 w-full rounded-2xl border-none bg-black/80 px-3 py-3 sm:py-4">
+                            <Image
+                              src={Star}
+                              alt="Star"
+                              className="w-4 h-4 sm:w-5 sm:h-5 z-10"
+                            />
+                            <input
+                              type="text"
+                              value={currentAnswer}
+                              onChange={(e) => setCurrentAnswer(e.target.value)}
+                              onFocus={handleInputFocus}
+                              onKeyDown={handleKeyPress}
+                              placeholder="Type your answer..."
+                              className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none text-base sm:text-lg"
+                            />
+                          </div>
 
-          {/* Buttons positioned inside input at right side */}
-          <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={handleDoMagic}
-              className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1.5 sm:p-2 border border-white transition-colors duration-300 group"
-            >
-              <Image
-                src={Mic}
-                alt="Microphone"
-                className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:scale-110 transition-transform duration-300"
-              />
-            </button>
-            
-            <button
-              onClick={handleAnswerSubmit}
-              disabled={!currentAnswer.trim()}
-              className="bg-blue-500 hover:bg-blue-200 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
-            >
-              <Image src={submit} alt="Send" className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-          </div>
-        </>
-      )}
-    </div>
-  </div>
-</div>
-      
-      <p className="text-center text-gray-400 text-xs sm:text-sm px-2">
-        Press Ctrl+Cmd + Enter To Submit Quickly
-      </p>
-    </div>
-  </div>
-)  : !showForm ? (
+                          {/* Buttons positioned inside input at right side */}
+                          <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 sm:gap-3">
+                            <button
+                              onClick={handleDoMagic}
+                              className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1.5 sm:p-2 border border-white transition-colors duration-300 group"
+                            >
+                              <Image
+                                src={Mic}
+                                alt="Microphone"
+                                className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </button>
+
+                            <button
+                              onClick={handleAnswerSubmit}
+                              disabled={!currentAnswer.trim()}
+                              className="bg-blue-500 hover:bg-blue-200 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
+                            >
+                              <Image src={submit} alt="Send" className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-center text-gray-400 text-xs sm:text-sm px-2">
+                  Press Ctrl+Cmd + Enter To Submit Quickly
+                </p>
+              </div>
+            </div>
+          ) : !showForm ? (
             <div className="max-w-2xl mx-auto mb-8">
               {/* Search-style Input */}
               <div className="relative">
@@ -598,7 +591,6 @@ const HeroSection = () => {
                 <div className="relative">
                   <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl animate-pulse"></div>
                   <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/80 to-transparent">
-
                     <div className="relative">
                       <Image src={fill} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
                       <textarea
@@ -607,31 +599,56 @@ const HeroSection = () => {
                         onChange={handleInputChange}
                         placeholder="I want an AI app that looks when appointments are missed..."
                         rows={4}
-                        className="w-full rounded-2xl border-none bg-[#001824] pl-12 pr-20 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
+                        className={`w-full rounded-2xl border-none bg-[#001824] pl-12 py-4 text-lg text-white placeholder-gray-400 focus:outline-none resize-none scrollbar-hide transition-all duration-300 ${formData.idea && formData.idea.length > 80 ? 'pr-16' : 'pr-32'
+                          }`}
+                        style={{
+                          scrollbarWidth: 'none', /* Firefox */
+                          msOverflowStyle: 'none', /* Internet Explorer 10+ */
+                        }}
                       />
-                      <div>
-                      </div>
+
+                      {/* Dynamic button - transforms from full button to circular icon */}
                       <div className="absolute right-3 bottom-4 flex items-center gap-x-2">
                         <button
                           onClick={handleDoMagic}
-                          className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1 border border-white transition-colors duration-300 group"
+                          className={`bg-[#00ABEB] text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center justify-center ${formData.idea && formData.idea.length > 80
+                              ? 'w-10 h-10 p-0' // Circular mode - only icon
+                              : 'px-4 py-2 gap-1' // Full button mode - icon + text
+                            }`}
+                          title={formData.idea && formData.idea.length > 80 ? 'Do the magic' : undefined}
                         >
                           <Image
-                            src={Mic}
-                            alt="Microphone"
-                            className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300"
+                            src={fill}
+                            alt="star"
+                            className={`transition-all duration-300 ${formData.idea && formData.idea.length > 80
+                                ? 'w-5 h-5' // Larger icon when circular
+                                : 'w-4 h-4' // Smaller icon when with text
+                              }`}
                           />
-                        </button>
-                        <button
-                          onClick={handleDoMagic}
-                          className="bg-[#00ABEB] text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center gap-1"
-                        >
-                          <Image src={fill} alt="star" className="w-4 h-4" />
-                          <span>Do the magic</span>
+                          {/* Text that fades out when button becomes circular */}
+                          <span
+                            className={`text-sm transition-all duration-300 overflow-hidden ${formData.idea && formData.idea.length > 80
+                                ? 'w-0 opacity-0' // Hidden when circular
+                                : 'w-auto opacity-100' // Visible when full button
+                              }`}
+                          >
+                            Do the magic
+                          </span>
                         </button>
                       </div>
                     </div>
                   </div>
+
+                  {/* CSS for hiding scrollbar */}
+                  <style jsx>{`
+    .scrollbar-hide {
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;  /* Safari and Chrome */
+    }
+  `}</style>
                 </div>
                 {/* Form Fields Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
