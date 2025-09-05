@@ -89,7 +89,7 @@ export default function DeliveryPromise() {
                 <Image
                   src={card.image}
                   alt={card.title}
-                 className=" w-full h-65 object-cover "
+                  
                 />
               </div>
               <div className="px-8 py-4">
