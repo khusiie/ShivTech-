@@ -162,7 +162,7 @@ const HeroSection = () => {
           </p>
 
           <div className="hidden md:block">
-            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-b from-white to-blue-200 bg-clip-text text-transparent">
               From Idea to Impact
               <br />
               in 60 Days
