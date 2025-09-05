@@ -175,7 +175,7 @@ const HeroSection = () => {
           </div>
           {showCompletion ? (
             /* Completion UI - "All set!" screen */
-            <div className="max-w-2xl mx-auto mb-8">
+            <div className="max-w-2xl mx-auto mb-8 border-1 border-amber-50">
               <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
                 <div className="text-center mb-8">
                   <h2 className="text-3xl font-bold text-white mb-3">Quick Questions</h2>
@@ -221,14 +221,14 @@ const HeroSection = () => {
 
 
                 {/* Previous Questions Summary */}
-                <div className="mb-8 space-y-6">
+                <div className="mb-8 space-y-6 ">
                   {questions.map((question, index) => (
                     <div key={index} className="space-y-4">
                       {/* Question - Left side */}
                       <div className="flex justify-start">
                         <div className="flex items-start gap-3 max-w-2xl">
                          <Image src={Shivai} alt="" className='w-6 h-6'/>
-                          <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-4 border border-cyan-400/30">
+                          <div className="bg-blue-500 backdrop-blur-sm rounded-2xl rounded-br-md  p-4 border border-cyan-400/30">
                             <p className="text-cyan-100 font-medium">{question}</p>
                           </div>
                         </div>
@@ -238,7 +238,7 @@ const HeroSection = () => {
                       {answers[index] && (
                         <div className="flex justify-end">
                           <div className="flex items-start gap-3 max-w-2xl">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
+                            <div className="bg-[#00000099/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-4 border border-white/20">
                               <p className="text-white">{answers[index]}</p>
                             </div>
                            <Image src={user} alt="user" className='w-8 h-8'/> 
@@ -309,7 +309,7 @@ const HeroSection = () => {
                       <div className={`w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
                         ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
                         : index < currentQuestion
-                          ? 'bg-cyan-600/80 text-white'
+                          ? 'bg-blue-500 text-white'
                           : 'bg-white/10 text-gray-500 border border-white/20'
                         }`}>
                         {index < currentQuestion ? (
@@ -335,8 +335,8 @@ const HeroSection = () => {
                         <div className="flex justify-start">
                           <div className="flex items-start gap-3 max-w-xl">
                            <Image src={Shivai} alt="logo" className='w-8 h-8'/>
-                            <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
-                              <p className="text-cyan-200 text-sm font-medium">{questions[index]}</p>
+                            <div className="bg-blue-500 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
+                              <p className="text-white text-sm font-medium">{questions[index]}</p>
                             </div>
                           </div>
                         </div>
@@ -367,7 +367,7 @@ const HeroSection = () => {
                       <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
                        <Image src={Shivai} alt="" className='w-8 h-8'/>
                       </div>
-                      <div className="bg-cyan-500/20 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
+                      <div className="bg-blue-500 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
                         <p className="text-white text-lg leading-relaxed font-medium">
                           {questions[currentQuestion]}
                         </p>
