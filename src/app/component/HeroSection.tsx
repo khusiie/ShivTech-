@@ -175,7 +175,7 @@ const HeroSection = () => {
           </div>
           {showCompletion ? (
             /* Completion UI - "All set!" screen - Full width on mobile */
-            <div className="w-full sm:max-w-2xl mx-auto mb-8 px-2 sm:px-4 md:px-0">
+            <div className="w-full  mb-8 md:px-0">
               <div className="bg-black/40 backdrop-blur-lg rounded-none sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-0 sm:border border-blue-500/30 min-h-screen sm:min-h-0">
                 <div className="text-center mb-6 sm:mb-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
@@ -368,7 +368,7 @@ const HeroSection = () => {
             </div>
           ) : showQuestions ? (
             /* Quick Questions Interface */
-            <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0">
+            <div className="w-full  mb-8  sm:px-0">
               <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-4 sm:p-6 lg:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
                 {/* Header */}
                 <div className="text-center mb-6 sm:mb-8">
@@ -557,7 +557,7 @@ const HeroSection = () => {
               </div>
             </div>
           ) : !showForm ? (
-            <div className="max-w-2xl mx-auto mb-8">
+            <div className=" mb-8">
               {/* Search-style Input */}
               <div className="relative">
                 <div className="absolute inset-0 rounded-[25.875px] bg-[#5255f7] blur-lg "></div>
