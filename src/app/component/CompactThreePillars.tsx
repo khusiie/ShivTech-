@@ -65,7 +65,7 @@ const CompactThreePillars = () => {
         </div>
 
         {/* Pillars */}
-        <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6">
+        <div className="max-w-5xl mx-auto space-y-8 sm:space-y-6">
           {pillars.map((pillar, index) => {
             const isSecondPillar = index === 1; // Second pillar (index 1)
             
@@ -86,7 +86,7 @@ const CompactThreePillars = () => {
                   {/* Mobile Layout - Single Line */}
                   <div className="flex sm:hidden items-center gap-2">
                     {/* Number */}
-                    <div className={`text-xl font-bold flex-shrink-0 ${
+                    <div className={`text-2xl font-bold flex-shrink-0 ${
                       isSecondPillar ? 'text-white' : 'text-gray-300'
                     }`}>
                       {pillar.number}
@@ -94,7 +94,7 @@ const CompactThreePillars = () => {
                     
                     {/* Content - Centered and flexible */}
                     <div className="flex-1 text-start px-1">
-                      <h3 className={`text-xs font-bold mb-1 ${
+                      <h3 className={`text-sm font-bold mb-1 ${
                         isSecondPillar ? 'text-white' : 'text-white'
                       }`}>
                         {pillar.title}
@@ -112,7 +112,7 @@ const CompactThreePillars = () => {
                       alt="AI Icon" 
                       width={20} 
                       height={24}
-                      className="w-5 h-6 flex-shrink-0"
+                      className="w-6 h-6 flex-shrink-0"
                     />
                   </div>
 
