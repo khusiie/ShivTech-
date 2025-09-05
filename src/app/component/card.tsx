@@ -179,13 +179,13 @@ const TwoCardsLayout: React.FC = () => {
   };
 
   return (
-    <div className="p-3 sm:p-4 md:p-6 bg-black min-h-screen flex justify-center">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 w-full max-w-7xl">
-        <GradientCard>
+    <div className="py-6 px-3 sm:p-4 md:p-6 bg-black min-h-screen flex justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-6 w-full max-w-7xl">
+        <GradientCard  className="  h-85 md:h-[100%]">
           <AIInsideCard />
         </GradientCard>
         
-        <GradientCard>
+        <GradientCard className=" h-90 md:h-[100%]">
           <ArtifactsCard />
         </GradientCard>
       </div>

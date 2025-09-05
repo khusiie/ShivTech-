@@ -16,7 +16,7 @@ export default function BuildProcess() {
     text-4xl sm:text-4xl md:text-6xl font-bold
     bg-[linear-gradient(79deg,_#FFF_-4.08%,_#3DCAFF_82.24%)]
     bg-clip-text text-transparent
-    mb-10 sm:mb-16 text-center
+    mb-2 sm:mb-12 text-center
   "
 >
   AI-First Build Process
