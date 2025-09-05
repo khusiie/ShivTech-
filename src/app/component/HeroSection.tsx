@@ -328,25 +328,34 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="relative inline-block mb-4 sm:mb-6">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F] to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center mx-auto shadow-2xl">
-            <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
-          </div>
-          <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
-        </div>
+    
 
-        {/* Progress Message */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">All set!</h2>
-        <p className="text-white/40 text-base sm:text-lg mb-6 sm:mb-8 px-4">
-          Check Your Email For A Confirmation And Next Steps.
-        </p>
+<div className="flex flex-row sm:flex-col items-center justify-center gap-2 sm:gap-6 mx-auto text-start">
+  {/* Success Icon */}
+  <div className="relative inline-block pl-6 md:pl-0 pb-2">
+    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#0F0F0F]  to-black/20 rounded-full border-4 border-white/40 flex items-center justify-center shadow-2xl">
+      <img src={checkmark} alt="Success" className="w-10 h-10 sm:w-12 sm:h-12" />
+    </div>
+    <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
+  </div>
+
+  {/* Progress Message */}
+  <div>
+    <h2 className="text-2xl sm:text-4xl font-bold text-white mb-2 px-2 md:text-center sm:mb-4">All set!</h2>
+    <p className="text-white/40 text-sm sm:text-lg  sm:mb-8 px-2 sm:px-4">
+      Check Your Email For A Confirmation And Next Steps.
+    </p>
+  </div>
+</div>
+
+
       </div>
 
       {/* Final CTA Button */}
-      <div className="flex justify-center px-4">
+      <div className="flex justify-center px-4 pb-4">
         <button
           onClick={handleBookConsult}
-          className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40 w-full sm:w-auto max-w-sm"
+          className="flex items-center justify-center gap-2 px-4 sm:px-6  py-2.5 sm:py-3 rounded-full transition-all duration-300 bg-black border-2 border-white hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/40 w-full sm:w-auto max-w-sm"
         >
           <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
             Book a 15-min consult
