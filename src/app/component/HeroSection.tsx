@@ -221,34 +221,104 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Previous Questions Summary */}
-      <div className="mb-8 sm:mb-10 space-y-4 sm:space-y-6">
-        {questions.map((question, index) => (
-          <div key={index} className="space-y-4 sm:space-y-6">
-            {/* Question - Left side */}
-            <div className="flex justify-start">
-              <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-                <Image src={Shivai} alt="" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
-                <div className="bg-[#0093DD] backdrop-blur-sm rounded-lg rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-2xl">
-                  <p className="text-cyan-100 font-medium text-sm sm:text-base break-words">{question}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Answer - Right side (if exists) */}
-            {answers[index] && (
-              <div className="flex justify-end">
-                <div className="flex items-start gap-2 sm:gap-3 max-w-full">
-                  <div className="bg-[#00000099/10] backdrop-blur-sm rounded-lg rounded-tl-xs p-3 border border-white/20 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-2xl">
-                    <p className="text-white text-sm sm:text-base break-words whitespace-pre-wrap">{answers[index]}</p>
-                  </div>
-                  <Image src={user} alt="user" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
-                </div>
-              </div>
-            )}
+    {/* Previous Questions Summary */}
+<div className="mb-8 sm:mb-10 max-h-80 sm:max-h-96 overflow-y-auto space-y-4 sm:space-y-6 pr-3 custom-aesthetic-scroll">
+  {questions.map((question, index) => (
+    <div key={index} className="space-y-4 sm:space-y-6">
+      {/* Question - Left side */}
+      <div className="flex justify-start">
+        <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+          <Image src={Shivai} alt="" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
+          <div className="bg-[#0093DD] backdrop-blur-sm rounded-lg rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-140px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
+            <p className="text-cyan-100 font-medium text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere">
+              {question}
+            </p>
           </div>
-        ))}
+        </div>
       </div>
+
+      {/* Answer - Right side (if exists) */}
+      {answers[index] && (
+        <div className="flex justify-end">
+          <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg rounded-tl-xs p-3 border border-white/20 max-w-[calc(100vw-140px)] sm:max-w-[calc(100vw-220px)] lg:max-w-2xl overflow-hidden">
+              <p className="text-white text-sm sm:text-base break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
+                {answers[index]}
+              </p>
+            </div>
+            <Image src={user} alt="user" className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-0.5" />
+          </div>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+{/* CSS for aesthetic white scrollbar */}
+<style jsx>{`
+  .custom-aesthetic-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+    margin: 6px 0;
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg, 
+      rgba(255, 255, 255, 0.7) 0%, 
+      rgba(255, 255, 255, 0.5) 50%, 
+      rgba(255, 255, 255, 0.7) 100%
+    );
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 
+      0 2px 4px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg, 
+      rgba(255, 255, 255, 0.85) 0%, 
+      rgba(255, 255, 255, 0.65) 50%, 
+      rgba(255, 255, 255, 0.85) 100%
+    );
+    box-shadow: 
+      0 3px 6px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: scaleX(1.3);
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(
+      180deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(255, 255, 255, 0.8) 50%, 
+      rgba(255, 255, 255, 0.95) 100%
+    );
+    box-shadow: 
+      0 1px 3px rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  .custom-aesthetic-scroll::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  
+  /* Smooth scroll behavior */
+  .custom-aesthetic-scroll {
+    scroll-behavior: smooth;
+  }
+`}</style>
 
       {/* Success Animation */}
       <div className="text-center mb-6 sm:mb-8">
@@ -291,174 +361,198 @@ const HeroSection = () => {
     </div>
   </div>
 ) : showQuestions ? (
-            /* Quick Questions Interface */
-            <div className="max-w-2xl mx-auto mb-8 border-1 border-amber-50 rounded-3xl">
-              <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
-                {/* Header */}
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-3">Quick Questions</h2>
-                  <p className="text-gray-300 text-base">
-                    Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
-                  </p>
-                </div>
+  /* Quick Questions Interface */
+  <div className="w-full max-w-2xl mx-auto mb-8 px-4 sm:px-0">
+    <div className="bg-black/40 backdrop-blur-lg rounded-3xl p-4 sm:p-6 lg:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
+      {/* Header */}
+      <div className="text-center mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Quick Questions</h2>
+        <p className="text-gray-300 text-sm sm:text-base px-2">
+          Great! Let Me Ask You A Few Quick Questions To Better Understand Your Idea.
+        </p>
+      </div>
 
-                {/* Progress Indicators - Horizontal dots */}
-                <div className="flex justify-center items-center gap-3 mb-10">
-                  {questions.map((_, index) => (
-                    <div key={index} className="flex items-center">
-                      <div className={`w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold transition-all duration-300 ${index === currentQuestion
-                        ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
-                        : index < currentQuestion
-                          ? 'bg-blue-500 text-white'
-                          : 'bg-white/10 text-gray-500 border border-white/20'
-                        }`}>
-                        {index < currentQuestion ? (
-                          <img src={checkmark} alt="Completed" className="w-4 h-4" />
-                        ) : (
-                          index + 1
-                        )}
-                      </div>
-                      {index < questions.length - 1 && (
-                        <div className={`w-8 h-0.5 mx-1 transition-all duration-500 ${index < currentQuestion ? 'bg-cyan-500' : 'bg-white/10'
-                          }`}></div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+      {/* Progress Indicators - Horizontal dots */}
+      <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-10 overflow-x-auto pb-2">
+        {questions.map((_, index) => (
+          <div key={index} className="flex items-center flex-shrink-0">
+            <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+              index === currentQuestion
+                ? 'bg-[#0093DD] text-white shadow-lg shadow-blue-500/50'
+                : index < currentQuestion
+                  ? 'bg-[#0093DD] text-white'
+                  : 'bg-white/10 text-gray-500 border border-white/20'
+            }`}>
+              {index < currentQuestion ? (
+                <img src={checkmark} alt="Completed" className="w-3 h-3 sm:w-4 sm:h-4" />
+              ) : (
+                index + 1
+              )}
+            </div>
+            {index < questions.length - 1 && (
+              <div className={`w-4 sm:w-8 h-0.5 mx-1 transition-all duration-500 ${
+                index < currentQuestion ? 'bg-[#0093DD]' : 'bg-white/10'
+              }`}></div>
+            )}
+          </div>
+        ))}
+      </div>
 
-
-                {currentQuestion > 0 && (
-                  <div className="mb-6 max-h-64 overflow-y-auto space-y-4 pr-2">
-                    {Array.from({ length: currentQuestion }).map((_, index) => (
-                      <div key={index} className="space-y-3">
-                        {/* Previous Question - Left side */}
-                        <div className="flex justify-start">
-                          <div className="flex items-start gap-3 max-w-xl">
-                            <Image src={Shivai} alt="logo" className='w-8 h-8' />
-                            <div className="bg-blue-500 backdrop-blur-sm rounded-2xl rounded-tl-md p-3 border border-cyan-400/30">
-                              <p className="text-white text-sm font-medium">{questions[index]}</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Previous Answer - Right side */}
-                        <div className="flex justify-end">
-                          <div className="flex items-start gap-3 max-w-xl">
-                            <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tr-md p-3 border border-white/20">
-                              <p className="text-white text-sm">{answers[index]}</p>
-                            </div>
-
-                            <Image src={user} alt="image" className=' w-8 h-8 rounded-full' />
-
-
-
-
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Current Question - Left side (same style as previous) */}
-                <div className="mb-8">
-                  <div className="flex justify-start">
-                    <div className="flex items-start gap-3 max-w-2xl">
-                      <div className="bg-[#0093DD] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <Image src={Shivai} alt="" className='w-8 h-8' />
-                      </div>
-                      <div className="bg-blue-500 backdrop-blur-sm rounded-2xl rounded-tl-md p-6 border border-cyan-400/30">
-                        <p className="text-white text-lg leading-relaxed font-medium">
-                          {questions[currentQuestion]}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Answer Input - Expandable */}
-
-                <div className="relative mb-6">
-                  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-black-400/50 to-blue-500/30">
-                    <div className="relative">
-                      {isInputExpanded ? (
-                        <>
-                          <Image src={Star} alt="Star" className="absolute left-4 top-4 w-5 h-5 z-10" />
-                          <textarea
-                            value={currentAnswer}
-                            onChange={(e) => setCurrentAnswer(e.target.value)}
-                            onFocus={handleInputFocus}
-                            onBlur={handleInputBlur}
-                            onKeyDown={handleKeyPress}
-                            placeholder="Type your answer..."
-                            rows={4}
-                            className="w-full rounded-2xl border-none bg-black/80 pl-12 pr-20 py-4 pb-16 text-lg text-white placeholder-gray-400 focus:outline-none resize-none"
-                          />
-                          {/* Buttons positioned inside textarea at bottom right */}
-                          <div className="absolute bottom-4 right-4 flex items-center gap-3">
-                            <button
-                              onClick={handleDoMagic}
-                              className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-2 border border-white transition-colors duration-300 group"
-                            >
-                              <Image
-                                src={Mic}
-                                alt="Microphone"
-                                className="w-5 h-5 transform group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </button>
-
-                            <button
-                              onClick={handleAnswerSubmit}
-                              disabled={!currentAnswer.trim()}
-                              className="bg-[#00ABEB] hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
-                            >
-                              <Image src={submit} alt="Send" className="w-6 h-6" />
-                            </button>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <input
-                            type="text"
-                            value={currentAnswer}
-                            onChange={(e) => setCurrentAnswer(e.target.value)}
-                            onFocus={handleInputFocus}
-                            onKeyDown={handleKeyPress}
-                            placeholder="Type your answer..."
-                            className="w-full rounded-2xl border-none bg-black/80 px-6 py-4 pr-24 text-white placeholder-gray-400 focus:outline-none text-lg"
-                          />
-                          {/* Buttons positioned inside input at right side */}
-                          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3">
-                            <button
-                              onClick={handleDoMagic}
-                              className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-2 border border-white transition-colors duration-300 group"
-                            >
-                              <Image
-                                src={Mic}
-                                alt="Microphone"
-                                className="w-5 h-5 transform group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </button>
-
-                            <button
-                              onClick={handleAnswerSubmit}
-                              disabled={!currentAnswer.trim()}
-                              className="bg-blue-500 hover:bg-blue-200 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
-                            >
-                              <Image src={submit} alt="Send" className="w-5 h-5" />
-                            </button>
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-center text-gray-400 text-sm">
-                  Press Ctrl+Cmd + Enter To Submit Quickly
+  {/* Show all previous Q&A with scroll if needed */}
+{currentQuestion > 0 && (
+  <div 
+    className="mb-6 max-h-32 sm:max-h-40 overflow-y-auto space-y-3 sm:space-y-4 pr-2 scrollbar-hide"
+    style={{
+      scrollbarWidth: 'none', /* Firefox */
+      msOverflowStyle: 'none', /* Internet Explorer 10+ */
+    }}
+  >
+    {/* Show all previous questions and answers */}
+    <div className="space-y-3">
+      {Array.from({ length: currentQuestion }).map((_, index) => (
+        <div key={index} className="space-y-2">
+          {/* Previous Question - Left side */}
+          <div className="flex justify-start">
+            <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+              <Image src={Shivai} alt="logo" className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0 mt-0.5" />
+              <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-2 sm:p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl">
+                <p className="text-white text-xs sm:text-sm font-medium break-words whitespace-pre-wrap overflow-wrap-anywhere">
+                  {questions[index]}
                 </p>
               </div>
             </div>
-          ) : !showForm ? (
+          </div>
+
+          {/* Previous Answer - Right side */}
+          {answers[index] && (
+            <div className="flex justify-end">
+              <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+                <div className="bg-white/10 backdrop-blur-sm rounded-md rounded-tl-xs p-2 sm:p-3 border border-white/20 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-xl overflow-hidden">
+                  <p className="text-white text-xs sm:text-sm break-words whitespace-pre-wrap overflow-wrap-anywhere hyphens-auto">
+                    {answers[index]}
+                  </p>
+                </div>
+                <Image src={user} alt="image" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0 mt-0.5" />
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{/* CSS for completely hidden scrollbar */}
+<style jsx>{`
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+`}</style>
+
+      {/* Current Question - Left side */}
+      <div className="mb-6 sm:mb-8">
+        <div className="flex justify-start">
+          <div className="flex items-start gap-2 sm:gap-3 max-w-full">
+            <div className="bg-[#0093DD] text-white rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center flex-shrink-0 shadow-lg">
+              <Image src={Shivai} alt="" className="w-7 h-7 sm:w-8 sm:h-8" />
+            </div>
+            <div className="bg-[#0093DD] backdrop-blur-sm rounded-md rounded-br-xs p-3 border border-cyan-400/30 max-w-[calc(100vw-120px)] sm:max-w-[calc(100vw-200px)] lg:max-w-2xl">
+              <p className="text-white text-sm sm:text-base leading-relaxed font-medium break-words whitespace-pre-wrap">
+                {questions[currentQuestion]}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Answer Input - Expandable */}
+<div className="relative mb-4 sm:mb-6">
+  <div className="rounded-2xl p-[1px] bg-gradient-to-t from-black-400/50 to-blue-500/30">
+    <div className="relative">
+      {isInputExpanded ? (
+        <>
+          <Image src={Star} alt="Star" className="absolute left-3 sm:left-4 top-3 sm:top-4 w-4 h-4 sm:w-5 sm:h-5 z-10" />
+          <textarea
+            value={currentAnswer}
+            onChange={(e) => setCurrentAnswer(e.target.value)}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+            onKeyDown={handleKeyPress}
+            placeholder="Type your answer..."
+            rows={4}
+            className="w-full rounded-2xl border-none bg-black/80 pl-10 sm:pl-12 pr-16 sm:pr-20 py-3 sm:py-4 pb-12 sm:pb-16 text-base sm:text-lg text-white placeholder-gray-400 focus:outline-none resize-none scrollbar-hide"
+            style={{
+              scrollbarWidth: 'none', /* Firefox */
+              msOverflowStyle: 'none', /* Internet Explorer 10+ */
+            }}
+          />
+          {/* Buttons positioned inside textarea at bottom right */}
+          <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={handleAnswerSubmit}
+              disabled={!currentAnswer.trim()}
+              className="bg-[#00ABEB] hover:bg-blue-600 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
+            >
+              <Image src={submit} alt="Send" className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+         <div className="flex items-center gap-2 w-full rounded-2xl border-none bg-black/80 px-3 py-3 sm:py-4">
+  <Image
+    src={Star}
+    alt="Star"
+    className="w-4 h-4 sm:w-5 sm:h-5 z-10"
+  />
+  <input
+    type="text"
+    value={currentAnswer}
+    onChange={(e) => setCurrentAnswer(e.target.value)}
+    onFocus={handleInputFocus}
+    onKeyDown={handleKeyPress}
+    placeholder="Type your answer..."
+    className="w-full bg-transparent text-white placeholder-gray-400 focus:outline-none text-base sm:text-lg"
+  />
+</div>
+
+          {/* Buttons positioned inside input at right side */}
+          <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={handleDoMagic}
+              className="bg-[#00ABEB] hover:bg-blue-600 text-white rounded-full p-1.5 sm:p-2 border border-white transition-colors duration-300 group"
+            >
+              <Image
+                src={Mic}
+                alt="Microphone"
+                className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:scale-110 transition-transform duration-300"
+              />
+            </button>
+            
+            <button
+              onClick={handleAnswerSubmit}
+              disabled={!currentAnswer.trim()}
+              className="bg-blue-500 hover:bg-blue-200 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-medium p-1.5 sm:p-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/40 flex items-center"
+            >
+              <Image src={submit} alt="Send" className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  </div>
+</div>
+      
+      <p className="text-center text-gray-400 text-xs sm:text-sm px-2">
+        Press Ctrl+Cmd + Enter To Submit Quickly
+      </p>
+    </div>
+  </div>
+)  : !showForm ? (
             <div className="max-w-2xl mx-auto mb-8">
               {/* Search-style Input */}
               <div className="relative">
